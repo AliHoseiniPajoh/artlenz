@@ -1,0 +1,250 @@
+/* Art Lenz Custom Design System & Apple Design Language Enhancements */
+
+:root {
+  --color-mint: #5BF4A3;
+  --color-mint-hover: #4ae092;
+  --color-navy: #131E29;
+  --color-navy-dark: #0B1118;
+  --color-navy-deep: #060A0E;
+}
+
+/* Modam Font Family Declarations */
+@font-face {
+  font-family: 'Modam';
+  src: url('../../Font/Modam-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Modam';
+  src: url('../../Font/Modam-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Modam';
+  src: url('../../Font/Modam-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Modam';
+  src: url('../../Font/Modam-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Modam';
+  src: url('../../Font/Modam-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Modam';
+  src: url('../../Font/Modam-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Modam';
+  src: url('../../Font/Modam-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Modam';
+  src: url('../../Font/Modam-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Base Body Styles & Global Font Enforcement */
+*, ::before, ::after {
+  font-family: 'Modam', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-feature-settings: "ss01" on, "ss02" on;
+}
+
+html, body, input, button, select, textarea {
+  font-family: 'Modam', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-feature-settings: "ss01" on, "ss02" on;
+  text-rendering: optimizeLegibility;
+}
+
+/* Ensure code, mono, numbers and digits strictly use Modam */
+.font-mono, code, kbd, samp, pre, [class*="font-mono"] {
+  font-family: 'Modam', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-feature-settings: "ss01" on, "ss02" on;
+}
+
+
+/* Glassmorphism Specs */
+.apple-glass-panel {
+  background: rgba(19, 30, 41, 0.72);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Focus styles for accessible keyboard navigation */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid #5BF4A3 !important;
+  outline-offset: 2px !important;
+}
+
+/* Subtle Glowing Shimmer for Buttons */
+.shimmer-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  transform: rotate(30deg);
+  transition: none;
+}
+
+.shimmer-btn:hover::after {
+  left: 140%;
+  transition: all 0.75s ease-in-out;
+}
+
+/* Interactive Camera Performance & Transition Overrides */
+#domeCameraContainer {
+  touch-action: none !important;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+#domeCameraInteractive, #cameraCoreGimbal {
+  transition: none !important;
+  will-change: transform;
+}
+
+/* Comparison Slider Styles */
+.comparison-slider-container {
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.comparison-handle {
+  touch-action: none;
+  cursor: ew-resize;
+}
+
+/* Instagram-style Story Rings */
+.story-ring-gradient {
+  background: linear-gradient(45deg, #5BF4A3, #00D2FF, #10B981);
+}
+
+.story-progress-bar {
+  transition: width 0.1s linear;
+}
+
+/* Print Friendly Styles for Official PDF Invoice */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #officialInvoicePrintArea, #officialInvoicePrintArea * {
+    visibility: visible !important;
+  }
+  #officialInvoicePrintArea {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    background: #FFFFFF !important;
+    color: #0B1118 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  @page {
+    size: A4 portrait;
+    margin: 1cm;
+  }
+/* AI Space Planner Styles & Animations */
+@keyframes aiLaserSweep {
+  0% {
+    top: 0%;
+    opacity: 0.8;
+  }
+  50% {
+    top: 96%;
+    opacity: 1;
+  }
+  100% {
+    top: 0%;
+    opacity: 0.8;
+  }
+}
+
+.ai-scan-laser {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #5BF4A3 20%, #00D2FF 50%, #5BF4A3 80%, transparent);
+  box-shadow: 0 0 25px 6px rgba(91, 244, 163, 0.75), 0 0 10px 2px rgba(0, 210, 255, 0.9);
+  animation: aiLaserSweep 2.4s ease-in-out infinite;
+  z-index: 25;
+  pointer-events: none;
+}
+
+.ai-hud-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(91, 244, 163, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(91, 244, 163, 0.1) 1px, transparent 1px);
+}
+
+@keyframes aiPinPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(91, 244, 163, 0.7);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 14px rgba(91, 244, 163, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(91, 244, 163, 0);
+  }
+}
+
+.ai-detection-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  animation: aiPinPulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+  cursor: pointer;
+  z-index: 20;
+}
+
+.ai-detection-pin:hover {
+  transform: translate(-50%, -50%) scale(1.25);
+  z-index: 30;
+}
+
