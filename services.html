@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خدمات کابل‌کشی، داکت‌کشی و نصب مهندسی دوربین مداربسته | آرت لنز</title>
+  <meta name="description" content="خدمات تخصصی کابل‌کشی شبکه CAT6، فیبر نوری، آرایش رک و نصب مهندسی دوربین مداربسته با ضمانت مادام‌العمر زیرساخت.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              mint: '#5BF4A3',
+              'mint-hover': '#4ae092',
+              'mint-dark': '#1e754a',
+              navy: '#131E29',
+              'navy-dark': '#0B1118',
+              'navy-deep': '#060A0E',
+              'navy-card': 'rgba(19, 30, 41, 0.75)',
+              'navy-border': 'rgba(255, 255, 255, 0.1)',
+              'navy-light': '#1C2B3A',
+              slate: '#8E9BAE',
+            }
+          },
+          fontFamily: {
+            sans: ['Modam', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['Modam', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          boxShadow: {
+            'mint-glow': '0 0 35px -5px rgba(91, 244, 163, 0.35)',
+            'mint-glow-sm': '0 0 15px -3px rgba(91, 244, 163, 0.3)',
+            'apple-card': '0 20px 40px -15px rgba(0, 0, 0, 0.7)',
+            'apple-inner': 'inset 0 1px 1px 0 rgba(255, 255, 255, 0.15)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @font-face {
+      font-family: 'Modam';
+      src: url('Font/Modam-ExtraLight.ttf') format('truetype');
+      font-weight: 200;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Modam';
+      src: url('Font/Modam-Light.ttf') format('truetype');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Modam';
+      src: url('Font/Modam-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Modam';
+      src: url('Font/Modam-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Modam';
+      src: url('Font/Modam-SemiBold.ttf') format('truetype');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Modam';
+      src: url('Font/Modam-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Modam';
+      src: url('Font/Modam-ExtraBold.ttf') format('truetype');
+      font-weight: 800;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Modam';
+      src: url('Font/Modam-Black.ttf') format('truetype');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Universal Font Enforcement & Persian Digits */
+    *, ::before, ::after {
+      font-family: 'Modam', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      font-feature-settings: "ss01" on, "ss02" on;
+    }
+
+    body {
+      font-family: 'Modam', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-color: #0B1118;
+      color: #F1F5F9;
+      overflow-x: hidden;
+      font-feature-settings: "ss01" on, "ss02" on;
+    }
+
+    .font-mono, code, kbd, samp, pre, [class*="font-mono"] {
+      font-family: 'Modam', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-feature-settings: "ss01" on, "ss02" on;
+    }
+
+    .apple-glass {
+      background: rgba(19, 30, 41, 0.68);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="bg-brand-navy-dark text-slate-100 selection:bg-brand-mint selection:text-brand-navy-dark min-h-screen flex flex-col justify-between">
+
+  <!-- HEADER (Active Link: خدمات نصب و کابل‌کشی) -->
+  <header class="sticky top-0 z-50 w-full transition-all duration-300 apple-glass border-b border-white/[0.08]" id="mainNavbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 gap-2 xl:gap-6">
+        
+        <!-- Right: Logo -->
+        <a href="index.html" class="flex items-center gap-3 shrink-0 whitespace-nowrap group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint rounded-xl px-1 py-1">
+          <div class="relative flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-br from-brand-navy-light to-brand-navy border border-white/10 group-hover:border-brand-mint/50 transition-all duration-300 shadow-apple-inner p-2">
+            <!-- Official Art Lenz Vector Logo -->
+            <img src="assets/images/logo.svg" alt="آرت لنز" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-[0_0_10px_rgba(96,255,173,0.4)]">
+            <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-brand-mint rounded-full shadow-[0_0_8px_#5BF4A3]"></span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl font-black tracking-tight text-white flex items-center gap-1.5">
+              آرت لنز
+              <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-brand-mint/15 text-brand-mint border border-brand-mint/30">Art Lenz</span>
+            </span>
+            <span class="text-[10px] text-slate-400 font-medium tracking-wider">مهندسی هوشمند نظارت تصویری</span>
+          </div>
+        </a>
+
+        <!-- Center: Nav -->
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-2 shrink-0">
+          <a href="store.html" class="px-3.5 xl:px-4 py-2 rounded-full text-xs xl:text-sm font-semibold whitespace-nowrap text-slate-300 hover:text-white hover:bg-white/5 transition-colors">
+            فروشگاه
+          </a>
+          <a href="services.html" class="px-3.5 xl:px-4 py-2 rounded-full text-xs xl:text-sm font-bold whitespace-nowrap bg-brand-mint/15 text-brand-mint border border-brand-mint/30 shadow-[0_0_12px_rgba(91,244,163,0.15)] transition-colors">
+            خدمات نصب و کابل‌کشی
+          </a>
+          <a href="enterprise.html" class="px-3.5 xl:px-4 py-2 rounded-full text-xs xl:text-sm font-semibold whitespace-nowrap text-slate-300 hover:text-white hover:bg-white/5 transition-colors">
+            پروژه‌های سازمانی
+          </a>
+          <a href="calculator.html" class="px-3.5 xl:px-4 py-2 rounded-full text-xs xl:text-sm font-semibold whitespace-nowrap text-slate-300 hover:text-white hover:bg-white/5 transition-colors">
+            برآورد آنلاین هزینه
+          </a>
+          <a href="faq.html" class="px-3.5 xl:px-4 py-2 rounded-full text-xs xl:text-sm font-semibold whitespace-nowrap text-slate-300 hover:text-white hover:bg-white/5 transition-colors">
+            پرسش‌های متداول
+          </a>
+        </nav>
+
+        <!-- Left: Action -->
+        <div class="flex items-center gap-2 sm:gap-3 shrink-0 whitespace-nowrap">
+          <a href="tel:+989390370985" class="hidden xl:flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-slate-200 hover:text-brand-mint transition-colors whitespace-nowrap shrink-0">
+            <svg class="w-4 h-4 text-brand-mint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>۰۹۳۹۰۳۷۰۹۸۵</span>
+          </a>
+          <a href="booking.html" class="hidden sm:inline-flex items-center justify-center px-4 py-2.5 rounded-2xl bg-brand-mint text-brand-navy-dark font-bold text-xs lg:text-sm hover:bg-brand-mint-hover hover:shadow-mint-glow-sm active:scale-95 transition-all whitespace-nowrap shrink-0">
+            درخواست مشاوره
+          </a>
+          <button id="mobileMenuBtn" class="lg:hidden p-2.5 rounded-2xl bg-white/5 text-slate-300 hover:text-white border border-white/10 focus:outline-none shrink-0">
+            <svg id="hamburgerIcon" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+            <svg id="closeIcon" class="w-6 h-6 hidden text-brand-mint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-white/10 bg-brand-navy-dark/95 backdrop-blur-2xl px-6 py-6 transition-all">
+      <div class="flex flex-col gap-3">
+        <a href="store.html" class="mobile-nav-link py-3 px-4 rounded-xl text-base font-semibold text-slate-200 hover:text-brand-mint hover:bg-white/5">فروشگاه تجهیزات</a>
+        <a href="services.html" class="mobile-nav-link py-3 px-4 rounded-xl text-base font-bold text-brand-mint bg-brand-mint/10">خدمات نصب و کابل‌کشی</a>
+        <a href="enterprise.html" class="mobile-nav-link py-3 px-4 rounded-xl text-base font-semibold text-slate-200 hover:text-brand-mint hover:bg-white/5">راهکارهای سازمانی و کارخانجات</a>
+        <a href="calculator.html" class="mobile-nav-link py-3 px-4 rounded-xl text-base font-semibold text-slate-200 hover:text-brand-mint hover:bg-white/5">محاسبه‌گر هزینه آنلاین</a>
+        <a href="faq.html" class="mobile-nav-link py-3 px-4 rounded-xl text-base font-semibold text-slate-200 hover:text-brand-mint hover:bg-white/5">پرسش‌های متداول</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Services Content -->
+  <main class="flex-1 py-14 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Services Hero -->
+      <div class="text-center max-w-4xl mx-auto mb-16">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-brand-mint/15 text-brand-mint font-bold text-xs border border-brand-mint/30 mb-3">
+          مهندسی سیستم‌های حفاظت الکترونیک
+        </span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-5 leading-tight">
+          استاندارد مهندسی در کابل‌کشی، داکت‌کشی و راه‌اندازی
+        </h1>
+        <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+          تفاوت اصلی آرت لنز در اجرای اصولی زیرساخت است؛ کابل‌کشی بدون نویز، محافظت در برابر صاعقه و نوسان، داکت‌کشی تمیز و ضمانت مادام‌العمر اتصالات.
+        </p>
+      </div>
+
+      <!-- 4 Key Services Columns -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        
+        <div class="rounded-3xl apple-glass p-6 border border-white/10 hover:border-brand-mint/40 transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-brand-mint/15 text-brand-mint flex items-center justify-center font-black text-lg mb-5">
+            ۰۱
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">کابل‌کشی شبکه CAT6 و فیبر نوری</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">استفاده اختصاصی از کابل‌های ۱۰۰٪ تمام‌مس با تست فلوک، فویل و شیلد ضد نویز الکترومغناطیسی و بدون افت سیگنال در فواصل طولانی.</p>
+        </div>
+
+        <div class="rounded-3xl apple-glass p-6 border border-white/10 hover:border-brand-mint/40 transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-brand-mint/15 text-brand-mint flex items-center justify-center font-black text-lg mb-5">
+            ۰۲
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">لوله‌گذاری فلزی و داکت مخفی</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">لوله‌های گالوانیزه ضد حریق و جوندگان برای محیط‌های بیرونی و کارگاهی، و داکت‌کشی دکوراتیو ظریف همرنگ محیط برای منازل و دفاتر.</p>
+        </div>
+
+        <div class="rounded-3xl apple-glass p-6 border border-white/10 hover:border-brand-mint/40 transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-brand-mint/15 text-brand-mint flex items-center justify-center font-black text-lg mb-5">
+            ۰۳
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">آرایش رک و پیکربندی سوییچ</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">نصب پچ‌پنل و شماره‌گذاری کابل‌ها (لیبل‌گذاری دقیق)، تفکیک ترافیک شبکه با VLAN و اتصال منبع تغذیه اضطراری UPS جهت جلوگیری از قطعی.</p>
+        </div>
+
+        <div class="rounded-3xl apple-glass p-6 border border-white/10 hover:border-brand-mint/40 transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-brand-mint/15 text-brand-mint flex items-center justify-center font-black text-lg mb-5">
+            ۰۴
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">انتقال تصویر و تنظیم فوکوس</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">تنظیم زاویه دید بدون نقطه کور، راه‌اندازی انتقال تصویر بر بستر شبکه ملی P2P روی گوشی‌های موبایل و آموزش کامل نرم‌افزار به کاربر.</p>
+        </div>
+
+      </div>
+
+      <!-- Comparison: Traditional vs Art Lenz Engineering -->
+      <div class="rounded-3xl apple-glass p-8 sm:p-12 border border-white/15 mb-16">
+        <h2 class="text-2xl sm:text-3xl font-black text-white text-center mb-8">
+          مقایسه: نصب سنتی در برابر استاندارد مهندسی آرت لنز
+        </h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-right text-xs sm:text-sm">
+            <thead>
+              <tr class="border-b border-white/10 text-slate-400">
+                <th class="pb-4 pr-2 font-bold">شاخص کیفی</th>
+                <th class="pb-4 text-rose-400 font-bold">روش‌های سنتی و غیر مهندسی</th>
+                <th class="pb-4 text-brand-mint font-bold">استاندارد مهندسی آرت لنز</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/5 text-slate-300">
+              <tr>
+                <td class="py-4 font-bold text-white">نوع کابل مصرفی</td>
+                <td class="py-4 text-slate-400">کابل‌های ارزان CCA (آلومینیوم با روکش مس) با قطعی زودهنگام</td>
+                <td class="py-4 text-brand-mint font-semibold">کابل ۱۰۰٪ مس خالص با گواهی تست فلوک و عدم افت ولتاژ</td>
+              </tr>
+              <tr>
+                <td class="py-4 font-bold text-white">مسیر و اتصالات</td>
+                <td class="py-4 text-slate-400">سیم‌کشی باز و چسب‌برق غیراصولی با خطر اتصال و قطعی</td>
+                <td class="py-4 text-brand-mint font-semibold">داکت‌کشی شیک، لوله فلزی، سوکت‌های شیلدد و جعبه تقسیم ضدآب</td>
+              </tr>
+              <tr>
+                <td class="py-4 font-bold text-white">پوشش نقاط کور</td>
+                <td class="py-4 text-slate-400">نصب بدون نقشه دقیق، زاویه دید نامناسب با نقاط کور متعدد</td>
+                <td class="py-4 text-brand-mint font-semibold">طراحی نقشه زوایای پوشش قبل از شروع کار و پوشش ۱۰۰٪ همپوشان</td>
+              </tr>
+              <tr>
+                <td class="py-4 font-bold text-white">گارانتی زیرساخت</td>
+                <td class="py-4 text-slate-400">بدون ضمانت کابل‌کشی پس از تحویل پروژه</td>
+                <td class="py-4 text-brand-mint font-semibold">ضمانت مادام‌العمر کیفیت زیرساخت و ۳۶ ماه تعویض قطعات</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Action Card -->
+      <div class="text-center rounded-3xl bg-brand-navy p-10 border border-brand-mint/30 shadow-mint-glow-sm">
+        <h3 class="text-2xl font-black text-white mb-3">پروژه خود را به متخصصان باتجربه بسپارید</h3>
+        <p class="text-slate-300 text-sm max-w-xl mx-auto mb-6">
+          بازدید و کارشناسی میدانی در محل برای تمامی پروژه‌ها کاملاً رایگان است. همین حالا زمان بازدید را هماهنگ کنید.
+        </p>
+        <a href="booking.html" class="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-brand-mint text-brand-navy-dark font-extrabold text-sm hover:bg-brand-mint-hover hover:shadow-mint-glow transition-all">
+          <span>ثبت درخواست بازدید رایگان کارشناس فنی</span>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="bg-brand-navy-deep border-t border-white/10 pt-8 pb-8 text-center text-xs text-slate-500">
+    <p>شرکت مهندسی نظارت تصویری آرت لنز | Art Lenz © ۱۴۰۴ - ۲۰۲۶</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
