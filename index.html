@@ -1,0 +1,2752 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>آرت لنز | سیستم‌های نظارت تصویری و دوربین مداربسته هوشمند</title>
+  <meta name="description" content="آرت لنز - ارائه پیشرفته‌ترین دوربین‌های مداربسته 4K، تجهیزات هوشمند امنیتی و خدمات کابل‌کشی و نصب مهندسی برای مصارف خانگی و سازمانی با گارانتی طلایی.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+
+  <!-- Persian Font: Vazirmatn from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              mint: '#5BF4A3',
+              'mint-hover': '#4ae092',
+              'mint-dark': '#1e754a',
+              navy: '#131E29',
+              'navy-dark': '#0B1118',
+              'navy-deep': '#060A0E',
+              'navy-card': 'rgba(19, 30, 41, 0.75)',
+              'navy-border': 'rgba(255, 255, 255, 0.1)',
+              'navy-light': '#1C2B3A',
+              slate: '#8E9BAE',
+            }
+          },
+          fontFamily: {
+            sans: ['Modam', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['Modam', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          boxShadow: {
+            'mint-glow': '0 0 35px -5px rgba(91, 244, 163, 0.35)',
+            'mint-glow-sm': '0 0 15px -3px rgba(91, 244, 163, 0.3)',
+            'apple-card': '0 20px 40px -15px rgba(0, 0, 0, 0.7)',
+            'apple-inner': 'inset 0 1px 1px 0 rgba(255, 255, 255, 0.15)',
+          },
+          animation: {
+            'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float-slow': 'float 6s ease-in-out infinite',
+            'scan-line': 'scan 3s linear infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            scan: {
+              '0%': { top: '0%' },
+              '100%': { top: '100%' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Modam Font Family Declarations */
+    @font-face {
+      font-family: 'Modam';
+      src: url('Font/Modam-ExtraLight.ttf') format('truetype');
+      font-weight: 200;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Modam';
+      src: url('Font/Modam-Light.ttf') format('truetype');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Modam';
+      src: url('Font/Modam-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Modam';
+      src: url('Font/Modam-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Modam';
+      src: url('Font/Modam-SemiBold.ttf') format('truetype');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Modam';
+      src: url('Font/Modam-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Modam';
+      src: url('Font/Modam-ExtraBold.ttf') format('truetype');
+      font-weight: 800;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Modam';
+      src: url('Font/Modam-Black.ttf') format('truetype');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* Universal Font Enforcement & Persian Digits */
+    *, ::before, ::after {
+      font-family: 'Modam', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      font-feature-settings: "ss01" on, "ss02" on;
+    }
+
+    body {
+      font-family: 'Modam', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-color: #0B1118;
+      color: #F1F5F9;
+      overflow-x: hidden;
+      font-feature-settings: "ss01" on, "ss02" on;
+    }
+
+    .font-mono, code, kbd, samp, pre, [class*="font-mono"] {
+      font-family: 'Modam', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      font-feature-settings: "ss01" on, "ss02" on;
+    }
+
+    /* Subtle custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B1118;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1C2B3A;
+      border-radius: 9999px;
+      border: 2px solid #0B1118;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #5BF4A3;
+    }
+
+    /* Glassmorphism utility */
+    .apple-glass {
+      background: rgba(19, 30, 41, 0.68);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .apple-glass-hover:hover {
+      background: rgba(28, 43, 58, 0.75);
+      border-color: rgba(91, 244, 163, 0.3);
+      box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(91, 244, 163, 0.15);
+    }
+
+    /* Glowing ambient radial backgrounds */
+    .ambient-glow-mint {
+      background: radial-gradient(circle at 50% 50%, rgba(91, 244, 163, 0.12) 0%, rgba(11, 17, 24, 0) 70%);
+    }
+
+    .ambient-glow-navy {
+      background: radial-gradient(circle at 50% 30%, rgba(30, 58, 86, 0.35) 0%, rgba(11, 17, 24, 0) 70%);
+    }
+  </style>
+  <link rel="stylesheet" href="assets/css/styles.css?v=2.7">
+</head>
+
+<body class="bg-brand-navy-dark text-slate-100 selection:bg-brand-mint selection:text-brand-navy-dark">
+
+  <!-- ========================================================================= -->
+  <!-- 1. HEADER / NAVBAR (Sticky, Apple Glassmorphism)                          -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-50 w-full transition-all duration-300 apple-glass border-b border-white/[0.08]" id="mainNavbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 gap-2 xl:gap-6">
+        
+        <!-- Right: Brand Logo -->
+        <a href="index.html" class="flex items-center gap-3 shrink-0 whitespace-nowrap group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint rounded-xl px-1 py-1">
+          <div class="relative flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-br from-brand-navy-light to-brand-navy border border-white/10 group-hover:border-brand-mint/50 transition-all duration-300 shadow-apple-inner p-2">
+            <!-- Official Art Lenz Vector Logo -->
+            <img src="assets/images/logo.svg" alt="آرت لنز" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-[0_0_10px_rgba(96,255,173,0.4)]">
+            <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-brand-mint rounded-full shadow-[0_0_8px_#5BF4A3]"></span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl font-black tracking-tight text-white flex items-center gap-1.5">
+              آرت لنز
+              <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-brand-mint/15 text-brand-mint border border-brand-mint/30">Art Lenz</span>
+            </span>
+            <span class="text-[10px] text-slate-400 font-medium tracking-wider">مهندسی هوشمند نظارت تصویری</span>
+          </div>
+        </a>
+
+        <!-- Center: Desktop Navigation Links (Never wrap, spacious) -->
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-2 shrink-0">
+          <a href="store.html" class="px-3.5 xl:px-4 py-2 rounded-full text-xs xl:text-sm font-semibold whitespace-nowrap text-slate-300 hover:text-white hover:bg-white/5 transition-colors duration-200">
+            فروشگاه
+          </a>
+          <a href="services.html" class="px-3.5 xl:px-4 py-2 rounded-full text-xs xl:text-sm font-semibold whitespace-nowrap text-slate-300 hover:text-white hover:bg-white/5 transition-colors duration-200">
+            خدمات نصب و کابل‌کشی
+          </a>
+          <a href="enterprise.html" class="px-3.5 xl:px-4 py-2 rounded-full text-xs xl:text-sm font-semibold whitespace-nowrap text-slate-300 hover:text-white hover:bg-white/5 transition-colors duration-200">
+            پروژه‌های سازمانی
+          </a>
+          <a href="calculator.html" class="px-3.5 xl:px-4 py-2 rounded-full text-xs xl:text-sm font-semibold whitespace-nowrap text-slate-300 hover:text-white hover:bg-white/5 transition-colors duration-200">
+            برآورد آنلاین هزینه
+          </a>
+          <a href="faq.html" class="px-3.5 xl:px-4 py-2 rounded-full text-xs xl:text-sm font-semibold whitespace-nowrap text-slate-300 hover:text-white hover:bg-white/5 transition-colors duration-200">
+            پرسش‌های متداول
+          </a>
+          <a href="#aiPlanner" class="px-3 xl:px-4 py-1.5 rounded-full text-xs xl:text-sm font-bold whitespace-nowrap text-brand-mint bg-brand-mint/10 border border-brand-mint/30 hover:bg-brand-mint/20 transition-all flex items-center gap-1.5 shadow-[0_0_12px_rgba(91,244,163,0.15)]">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-mint animate-ping"></span>
+            طراحی فضا با AI
+          </a>
+        </nav>
+
+        <!-- Left: Action Buttons (Cart, Phone, Booking CTA) -->
+        <div class="flex items-center gap-2 sm:gap-3 shrink-0 whitespace-nowrap">
+          
+          <!-- Shopping Cart Button -->
+          <button id="cartButton" class="relative p-2.5 rounded-2xl bg-white/5 hover:bg-white/10 text-slate-200 hover:text-brand-mint border border-white/10 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-mint shrink-0" aria-label="سبد خرید">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="8" cy="21" r="1"/>
+              <circle cx="19" cy="21" r="1"/>
+              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+            </svg>
+            <span id="cartBadgeCount" class="absolute -top-1.5 -right-1.5 min-w-[20px] h-5 px-1 bg-brand-mint text-brand-navy-dark font-bold text-xs rounded-full flex items-center justify-center shadow-[0_0_8px_rgba(91,244,163,0.6)]">
+              ۰
+            </span>
+          </button>
+
+          <!-- Quick Call CTA (Only shown on extra-large screens to avoid crowding) -->
+          <a href="tel:+989390370985" class="hidden xl:flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-slate-200 hover:text-brand-mint transition-colors whitespace-nowrap shrink-0">
+            <svg class="w-4 h-4 text-brand-mint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <span>۰۹۳۹۰۳۷۰۹۸۵</span>
+          </a>
+
+          <!-- Booking Button CTA (Always single line) -->
+          <a href="booking.html" class="hidden sm:inline-flex items-center justify-center px-4 py-2.5 rounded-2xl bg-brand-mint text-brand-navy-dark font-bold text-xs lg:text-sm hover:bg-brand-mint-hover hover:shadow-mint-glow-sm active:scale-95 transition-all duration-200 whitespace-nowrap shrink-0">
+            درخواست مشاوره
+          </a>
+
+          <!-- Mobile/Tablet Hamburger Menu Button -->
+          <button id="mobileMenuBtn" class="lg:hidden p-2.5 rounded-2xl bg-white/5 text-slate-300 hover:text-white border border-white/10 focus:outline-none shrink-0" aria-label="منوی سایت">
+            <svg id="hamburgerIcon" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" y1="6" x2="20" y2="6"/>
+              <line x1="4" y1="12" x2="20" y2="12"/>
+              <line x1="4" y1="18" x2="20" y2="18"/>
+            </svg>
+            <svg id="closeIcon" class="w-6 h-6 hidden text-brand-mint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile/Tablet Drawer Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-white/10 bg-brand-navy-dark/95 backdrop-blur-2xl px-6 py-6 transition-all duration-300">
+      <div class="flex flex-col gap-3">
+        <a href="store.html" class="mobile-nav-link py-3 px-4 rounded-xl text-base font-semibold text-slate-200 hover:text-brand-mint hover:bg-white/5">
+          فروشگاه تجهیزات
+        </a>
+        <a href="services.html" class="mobile-nav-link py-3 px-4 rounded-xl text-base font-semibold text-slate-200 hover:text-brand-mint hover:bg-white/5">
+          خدمات نصب و کابل‌کشی
+        </a>
+        <a href="enterprise.html" class="mobile-nav-link py-3 px-4 rounded-xl text-base font-semibold text-slate-200 hover:text-brand-mint hover:bg-white/5">
+          راهکارهای سازمانی و کارخانجات
+        </a>
+        <a href="calculator.html" class="mobile-nav-link py-3 px-4 rounded-xl text-base font-semibold text-slate-200 hover:text-brand-mint hover:bg-white/5">
+          محاسبه‌گر هزینه آنلاین
+        </a>
+        <a href="faq.html" class="mobile-nav-link py-3 px-4 rounded-xl text-base font-semibold text-slate-200 hover:text-brand-mint hover:bg-white/5">
+          پرسش‌های متداول
+        </a>
+        <a href="#aiPlanner" class="mobile-nav-link py-3 px-4 rounded-xl text-base font-bold text-brand-mint bg-brand-mint/10 border border-brand-mint/25 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-brand-mint animate-pulse"></span>
+          طراحی فضا و جانمایی با AI (جدید)
+        </a>
+        
+        <div class="pt-4 mt-2 border-t border-white/10 flex flex-col gap-3">
+          <a href="booking.html" class="mobile-nav-link w-full py-3.5 rounded-2xl bg-brand-mint text-brand-navy-dark text-center font-bold text-sm shadow-mint-glow-sm">
+            درخواست مشاوره و نصب رایگان
+          </a>
+          <a href="tel:+989390370985" class="w-full py-3 rounded-2xl bg-white/5 border border-white/10 text-center font-semibold text-sm text-slate-200 flex items-center justify-center gap-2">
+            <svg class="w-4 h-4 text-brand-mint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            تماس مستقیم: ۰۹۳۹۰۳۷۰۹۸۵
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="relative overflow-hidden">
+    
+    <!-- Ambient Background Glows -->
+    <div class="absolute -top-40 right-1/4 w-96 h-96 ambient-glow-mint pointer-events-none rounded-full blur-3xl opacity-60"></div>
+    <div class="absolute top-1/3 left-0 w-[500px] h-[500px] ambient-glow-navy pointer-events-none rounded-full blur-3xl opacity-75"></div>
+    <div class="absolute bottom-1/4 right-0 w-[600px] h-[600px] ambient-glow-mint pointer-events-none rounded-full blur-3xl opacity-30"></div>
+
+    <!-- ========================================================================= -->
+    <!-- 2. HERO SECTION (Apple Aesthetic: Bold Typography + 3D Dome Camera Mockup)-->
+    <!-- ========================================================================= -->
+    <section class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <!-- Hero Text (Right Column on Desktop RTL) -->
+          <div class="lg:col-span-6 flex flex-col items-start text-right z-10">
+            
+            <!-- Apple-style Pill Badge -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-brand-mint/30 mb-6 backdrop-blur-md">
+              <span class="w-2 h-2 rounded-full bg-brand-mint animate-ping"></span>
+              <span class="text-xs font-semibold text-brand-mint tracking-wide">
+                نسل سوم نظارت هوشمند با سنسور Sony STARVIS 2
+              </span>
+            </div>
+
+            <!-- Big Bold Typography Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.2] sm:leading-[1.25] text-white mb-6">
+              امنیت هوشمند،<br>
+              <span class="text-transparent bg-clip-text bg-gradient-to-l from-brand-mint via-[#76ffbb] to-white">
+                با دقتِ آرت لنز
+              </span>
+            </h1>
+
+            <!-- Subheadline Paragraph -->
+            <p class="text-base sm:text-lg lg:text-xl text-slate-300 font-normal leading-relaxed mb-8 max-w-xl">
+              تلفیق وضوح فوق‌العاده <strong class="text-white font-semibold">4K Ultra HD</strong>، تفکیک هوش مصنوعی انسان و خودرو در تاریکی مطلق، و نصب استاندارد مهندسی با <strong class="text-brand-mint font-semibold">۱۲ ماه ضمانت طلایی تعویض</strong>.
+            </p>
+
+            <!-- Dual Call to Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-10">
+              <!-- Primary CTA: Solid Mint Green -->
+              <a href="#store" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-brand-mint text-brand-navy-dark font-extrabold text-base hover:bg-brand-mint-hover hover:shadow-mint-glow active:scale-[0.98] transition-all duration-300 group">
+                <span>خرید تجهیزات</span>
+                <svg class="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </a>
+
+              <!-- Secondary CTA: Outline Navy/Glass -->
+              <a href="#booking" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/20 hover:border-brand-mint/60 text-white font-bold text-base backdrop-blur-md active:scale-[0.98] transition-all duration-300">
+                <svg class="w-5 h-5 text-brand-mint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                <span>درخواست مشاوره و نصب</span>
+              </a>
+
+              <!-- Smart Quiz Trigger CTA -->
+              <button type="button" id="openQuizHeroBtn" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/15 text-slate-200 hover:text-white font-bold text-sm active:scale-[0.98] transition-all duration-300">
+                <span class="text-base">✨</span>
+                <span>مشاوره‌ی ۳۰ ثانیه‌ای انتخاب پکیج</span>
+              </button>
+
+              <!-- AI Space Planner Hero CTA -->
+              <a href="#aiPlanner" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-gradient-to-r from-brand-mint/15 via-cyan-400/15 to-brand-mint/15 hover:from-brand-mint/25 hover:to-cyan-400/25 border border-brand-mint/40 text-brand-mint font-black text-sm active:scale-[0.98] transition-all duration-300 shadow-[0_0_20px_rgba(91,244,163,0.15)]">
+                <span class="w-2 h-2 rounded-full bg-brand-mint animate-ping"></span>
+                <span>تحلیل فضا با AI (آپلود عکس)</span>
+              </a>
+            </div>
+
+            <!-- Mini Trust Stats Bar -->
+            <div class="grid grid-cols-3 gap-6 pt-6 border-t border-white/10 w-full max-w-lg">
+              <div>
+                <div class="text-2xl sm:text-3xl font-black text-white">4K UHD</div>
+                <div class="text-xs text-slate-400 mt-1 font-medium">سنسور تصویر سونی ۸MP</div>
+              </div>
+              <div class="border-r border-white/10 pr-6">
+                <div class="text-2xl sm:text-3xl font-black text-brand-mint">۱۰۰۰</div>
+                <div class="text-xs text-slate-400 mt-1 font-medium">پروژه موفق در کشور</div>
+              </div>
+              <div class="border-r border-white/10 pr-6">
+                <div class="text-2xl sm:text-3xl font-black text-white">۱۲ ماه</div>
+                <div class="text-xs text-slate-400 mt-1 font-medium">گارانتی طلایی تعویض</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Hero Graphic: Apple-Style Interactive Dome Camera Showcase (Left Column Desktop RTL) -->
+          <div class="lg:col-span-6 relative flex items-center justify-center">
+            
+            <!-- Radial background ambient glow for the camera -->
+            <div class="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-brand-mint/15 blur-3xl -z-10 animate-pulse-subtle"></div>
+            
+            <!-- Main Dome Camera Showcase Card -->
+            <div class="relative w-full max-w-lg mx-auto p-4 sm:p-6 rounded-3xl apple-glass shadow-apple-card border border-white/15">
+              
+              <!-- Camera Top Status Bar -->
+              <div class="flex items-center justify-between pb-4 mb-4 border-b border-white/10 text-xs">
+                <div class="flex items-center gap-2">
+                  <span class="relative flex h-2.5 w-2.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-mint opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-mint"></span>
+                  </span>
+                  <span class="text-brand-mint font-bold tracking-wider">LIVE 4K • 60 FPS</span>
+                </div>
+                <div class="flex items-center gap-2 text-slate-400">
+                  <span class="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 font-medium text-[11px] text-slate-300">
+                    ArtLenz Turret-X 4K
+                  </span>
+                  <span class="text-emerald-400 font-bold text-[11px]">AI ACTIVE</span>
+                </div>
+              </div>
+
+              <!-- Interactive Dome Mockup Container -->
+              <div id="domeCameraContainer" class="relative w-full h-72 sm:h-84 flex items-center justify-center cursor-crosshair group overflow-hidden rounded-2xl bg-gradient-to-b from-[#0B131D] via-[#0F1A26] to-[#080E14] border border-white/5" style="touch-action: none;">
+                
+                <!-- Coordinate Grid Crosshair Overlay -->
+                <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
+
+                <!-- Laser Target Center Ring -->
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div class="w-48 h-48 rounded-full border border-dashed border-brand-mint/20 animate-[spin_30s_linear_infinite]"></div>
+                  <div class="w-64 h-64 rounded-full border border-white/5"></div>
+                </div>
+
+                <!-- SCAN LINE EFFECT (Toggleable) -->
+                <div id="cameraScanLine" class="hidden absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brand-mint to-transparent shadow-[0_0_15px_#5BF4A3] animate-scan-line pointer-events-none z-20"></div>
+
+                <!-- HYPER-REALISTIC SVG EYEBALL TURRET CAMERA -->
+                <div id="domeCameraInteractive" class="relative z-10 transform" style="will-change: transform; transition: none;">
+                  <svg class="w-60 h-60 sm:w-72 sm:h-72 drop-shadow-[0_25px_45px_rgba(0,0,0,0.85)]" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <!-- White Powder-Coated Metal Body Gradients -->
+                      <linearGradient id="turretWhiteMetal" x1="20%" y1="10%" x2="80%" y2="90%">
+                        <stop offset="0%" stop-color="#FFFFFF"/>
+                        <stop offset="25%" stop-color="#F8FAFC"/>
+                        <stop offset="55%" stop-color="#E2E8F0"/>
+                        <stop offset="85%" stop-color="#CBD5E1"/>
+                        <stop offset="100%" stop-color="#94A3B8"/>
+                      </linearGradient>
+
+                      <linearGradient id="turretWhiteBevel" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+                        <stop offset="100%" stop-color="#64748B" stop-opacity="0.3"/>
+                      </linearGradient>
+
+                      <!-- Deep Ambient Occlusion Socket Gradient (Inside Collar) -->
+                      <radialGradient id="socketDepthShadow" cx="50%" cy="50%" r="50%">
+                        <stop offset="55%" stop-color="#0F172A" stop-opacity="0"/>
+                        <stop offset="85%" stop-color="#090D14" stop-opacity="0.7"/>
+                        <stop offset="100%" stop-color="#020408" stop-opacity="0.98"/>
+                      </radialGradient>
+
+                      <!-- Eyeball Spherical 3D Gradient -->
+                      <radialGradient id="eyeballWhite3D" cx="38%" cy="32%" r="65%">
+                        <stop offset="0%" stop-color="#FFFFFF"/>
+                        <stop offset="35%" stop-color="#F8FAFC"/>
+                        <stop offset="70%" stop-color="#E2E8F0"/>
+                        <stop offset="90%" stop-color="#94A3B8"/>
+                        <stop offset="100%" stop-color="#64748B"/>
+                      </radialGradient>
+
+                      <!-- Eyeball Dark Faceplate Gradient -->
+                      <radialGradient id="turretFaceplate" cx="45%" cy="40%" r="55%">
+                        <stop offset="0%" stop-color="#1E293B"/>
+                        <stop offset="45%" stop-color="#0F172A"/>
+                        <stop offset="80%" stop-color="#070B10"/>
+                        <stop offset="100%" stop-color="#020406"/>
+                      </radialGradient>
+
+                      <!-- Multi-Coated 4K Optical Camera Lens -->
+                      <radialGradient id="turretLensCoating" cx="42%" cy="38%" r="60%">
+                        <stop offset="0%" stop-color="#5BF4A3" stop-opacity="0.85"/>
+                        <stop offset="25%" stop-color="#00D2FF" stop-opacity="0.75"/>
+                        <stop offset="55%" stop-color="#0284C7" stop-opacity="0.9"/>
+                        <stop offset="75%" stop-color="#1E1B4B" stop-opacity="0.95"/>
+                        <stop offset="100%" stop-color="#020617" stop-opacity="1"/>
+                      </radialGradient>
+
+                      <!-- Chrome Reflector Cup for Array LEDs -->
+                      <linearGradient id="ledChromeCup" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#CBD5E1"/>
+                        <stop offset="30%" stop-color="#475569"/>
+                        <stop offset="70%" stop-color="#F1F5F9"/>
+                        <stop offset="100%" stop-color="#334155"/>
+                      </linearGradient>
+
+                      <!-- Crystal Collimator Lens for Array LEDs -->
+                      <radialGradient id="ledCrystalLens" cx="35%" cy="35%" r="60%">
+                        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9"/>
+                        <stop offset="45%" stop-color="#94A3B8" stop-opacity="0.5"/>
+                        <stop offset="80%" stop-color="#334155" stop-opacity="0.85"/>
+                        <stop offset="100%" stop-color="#1E293B" stop-opacity="1"/>
+                      </radialGradient>
+
+                      <!-- Specular Arc for Glass / Body Reflection -->
+                      <linearGradient id="turretSpecular" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.7"/>
+                        <stop offset="30%" stop-color="#FFFFFF" stop-opacity="0.15"/>
+                        <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+                      </linearGradient>
+                    </defs>
+
+                    <!-- 1. BASE MOUNTING FLANGE (Ceiling/Wall Ring) -->
+                    <circle cx="150" cy="150" r="142" fill="url(#turretWhiteMetal)" stroke="#94A3B8" stroke-width="1.5"/>
+                    <circle cx="150" cy="150" r="136" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+
+                    <!-- Base Mounting Screws & Top Cable Pass Notch -->
+                    <rect x="145" y="8" width="10" height="6" rx="2" fill="#64748B"/>
+                    <circle cx="34" cy="150" r="3" fill="#64748B" stroke="#475569" stroke-width="0.7"/>
+                    <circle cx="266" cy="150" r="3" fill="#64748B" stroke="#475569" stroke-width="0.7"/>
+                    <circle cx="150" cy="286" r="3" fill="#64748B" stroke="#475569" stroke-width="0.7"/>
+
+                    <!-- 2. SCULPTED TURRET COLLAR HOOD (Outer Shroud cupping the ball) -->
+                    <circle cx="150" cy="150" r="124" fill="url(#turretWhiteMetal)" stroke="url(#turretWhiteBevel)" stroke-width="2"/>
+                    <circle cx="150" cy="150" r="116" fill="#E2E8F0"/>
+                    
+                    <!-- Inner Socket Hollow Opening (Where the eyeball sits) -->
+                    <circle cx="150" cy="150" r="108" fill="#0A0E14" stroke="#64748B" stroke-width="1.5"/>
+                    <circle cx="150" cy="150" r="108" fill="url(#socketDepthShadow)"/>
+
+                    <!-- Ventilation / Speaker Grill Slots on Left Collar -->
+                    <g id="collarSpeakerSlots" opacity="0.85">
+                      <rect x="42" y="130" width="16" height="3" rx="1.5" transform="rotate(25 42 130)" fill="#1E293B"/>
+                      <rect x="39" y="141" width="18" height="3" rx="1.5" transform="rotate(25 39 141)" fill="#1E293B"/>
+                      <rect x="41" y="152" width="16" height="3" rx="1.5" transform="rotate(25 41 152)" fill="#1E293B"/>
+                    </g>
+
+                    <!-- Lower Rim Precision Drainage/Status Mic Ports -->
+                    <circle cx="138" cy="254" r="1.5" fill="#334155"/>
+                    <circle cx="144" cy="256" r="1.5" fill="#334155"/>
+                    <circle cx="150" cy="257" r="1.5" fill="#334155"/>
+                    <circle cx="156" cy="256" r="1.5" fill="#334155"/>
+                    <circle cx="162" cy="254" r="1.5" fill="#334155"/>
+
+                    <!-- 3. THE ARTICULATED EYEBALL GIMBAL CORE (Moves with Gyro / Mouse / Touch) -->
+                    <g id="cameraCoreGimbal" style="will-change: transform; transition: none;">
+                      <!-- White Spherical Eyeball Body -->
+                      <circle cx="150" cy="150" r="102" fill="url(#eyeballWhite3D)" stroke="#CBD5E1" stroke-width="1"/>
+
+                      <!-- Eyeball Casing Sculpted Bezel Ring -->
+                      <circle cx="150" cy="150" r="88" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5"/>
+
+                      <!-- Black Faceplate (Deep Dark Optical Face) -->
+                      <circle cx="150" cy="150" r="82" fill="url(#turretFaceplate)" stroke="#090D12" stroke-width="2"/>
+                      <circle cx="150" cy="150" r="80" fill="none" stroke="#1E293B" stroke-width="1" stroke-opacity="0.6"/>
+
+                      <!-- Ambient Light Sensor (CDS Photocell) at Top of Faceplate -->
+                      <circle cx="150" cy="100" r="4.5" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+                      <circle cx="150" cy="100" r="2.5" fill="#0284C7" fill-opacity="0.8"/>
+                      <circle cx="149" cy="99" r="1" fill="#FFFFFF" fill-opacity="0.8"/>
+
+                      <!-- Microphone Pinhole -->
+                      <circle cx="132" cy="103" r="1.5" fill="#000000"/>
+
+                      <!-- 6 ARRAY HIGH-POWER IR / FULL-COLOR LEDS (Surrounding the central lens) -->
+                      <g id="irLedArray" class="transition-all duration-500">
+                        <!-- LED 1: Top-Right (188, 114) -->
+                        <g class="array-led" transform="translate(188, 114)">
+                          <circle cx="0" cy="0" r="12" fill="url(#ledChromeCup)" stroke="#475569" stroke-width="0.8"/>
+                          <circle cx="0" cy="0" r="9.5" fill="url(#ledCrystalLens)"/>
+                          <circle cx="0" cy="0" r="4.5" fill="#384C5E" class="ir-node" stroke="#1E293B" stroke-width="0.5"/>
+                          <circle cx="-2.5" cy="-2.5" r="2" fill="#FFFFFF" fill-opacity="0.45"/>
+                        </g>
+
+                        <!-- LED 2: Mid-Right (204, 154) -->
+                        <g class="array-led" transform="translate(204, 154)">
+                          <circle cx="0" cy="0" r="12" fill="url(#ledChromeCup)" stroke="#475569" stroke-width="0.8"/>
+                          <circle cx="0" cy="0" r="9.5" fill="url(#ledCrystalLens)"/>
+                          <circle cx="0" cy="0" r="4.5" fill="#384C5E" class="ir-node" stroke="#1E293B" stroke-width="0.5"/>
+                          <circle cx="-2.5" cy="-2.5" r="2" fill="#FFFFFF" fill-opacity="0.45"/>
+                        </g>
+
+                        <!-- LED 3: Bottom-Right (182, 194) -->
+                        <g class="array-led" transform="translate(182, 194)">
+                          <circle cx="0" cy="0" r="12" fill="url(#ledChromeCup)" stroke="#475569" stroke-width="0.8"/>
+                          <circle cx="0" cy="0" r="9.5" fill="url(#ledCrystalLens)"/>
+                          <circle cx="0" cy="0" r="4.5" fill="#384C5E" class="ir-node" stroke="#1E293B" stroke-width="0.5"/>
+                          <circle cx="-2.5" cy="-2.5" r="2" fill="#FFFFFF" fill-opacity="0.45"/>
+                        </g>
+
+                        <!-- LED 4: Bottom-Left (118, 194) -->
+                        <g class="array-led" transform="translate(118, 194)">
+                          <circle cx="0" cy="0" r="12" fill="url(#ledChromeCup)" stroke="#475569" stroke-width="0.8"/>
+                          <circle cx="0" cy="0" r="9.5" fill="url(#ledCrystalLens)"/>
+                          <circle cx="0" cy="0" r="4.5" fill="#384C5E" class="ir-node" stroke="#1E293B" stroke-width="0.5"/>
+                          <circle cx="-2.5" cy="-2.5" r="2" fill="#FFFFFF" fill-opacity="0.45"/>
+                        </g>
+
+                        <!-- LED 5: Mid-Left (96, 154) -->
+                        <g class="array-led" transform="translate(96, 154)">
+                          <circle cx="0" cy="0" r="12" fill="url(#ledChromeCup)" stroke="#475569" stroke-width="0.8"/>
+                          <circle cx="0" cy="0" r="9.5" fill="url(#ledCrystalLens)"/>
+                          <circle cx="0" cy="0" r="4.5" fill="#384C5E" class="ir-node" stroke="#1E293B" stroke-width="0.5"/>
+                          <circle cx="-2.5" cy="-2.5" r="2" fill="#FFFFFF" fill-opacity="0.45"/>
+                        </g>
+
+                        <!-- LED 6: Top-Left (112, 114) -->
+                        <g class="array-led" transform="translate(112, 114)">
+                          <circle cx="0" cy="0" r="12" fill="url(#ledChromeCup)" stroke="#475569" stroke-width="0.8"/>
+                          <circle cx="0" cy="0" r="9.5" fill="url(#ledCrystalLens)"/>
+                          <circle cx="0" cy="0" r="4.5" fill="#384C5E" class="ir-node" stroke="#1E293B" stroke-width="0.5"/>
+                          <circle cx="-2.5" cy="-2.5" r="2" fill="#FFFFFF" fill-opacity="0.45"/>
+                        </g>
+                      </g>
+
+                      <!-- CENTRAL MAIN CAMERA LENS ASSEMBLY (High-precision Stepped Bezel) -->
+                      <!-- Outer Heavy Knurled Bezel -->
+                      <circle cx="150" cy="150" r="36" fill="#0A0E13" stroke="#2B3A4A" stroke-width="2.5"/>
+                      <circle cx="150" cy="150" r="33" fill="#030507" stroke="#151D24" stroke-width="1.5"/>
+
+                      <!-- Lens Thread & Inner Bezel -->
+                      <circle cx="150" cy="150" r="28" fill="#0E1620" stroke="#334155" stroke-width="1"/>
+
+                      <!-- Coated Front Optical Glass Element -->
+                      <circle id="cameraLensGlass" cx="150" cy="150" r="24" fill="url(#turretLensCoating)"/>
+
+                      <!-- Lens Aperture Iris Ring (Apple-grade Starvis 2 Accent) -->
+                      <circle cx="150" cy="150" r="15" fill="#040608" stroke="#5BF4A3" stroke-width="1" stroke-opacity="0.75"/>
+
+                      <!-- Center Sensor Pupil Core -->
+                      <circle id="cameraPupil" cx="150" cy="150" r="8.5" fill="#000000"/>
+                      <circle cx="147.5" cy="147.5" r="2" fill="#5BF4A3" fill-opacity="0.95"/>
+
+                      <!-- Lens Glass Specular Crescent & Reflection Spot -->
+                      <path d="M 134 137 A 20 20 0 0 1 166 137 A 17 17 0 0 0 139 142 Z" fill="#FFFFFF" fill-opacity="0.4"/>
+                      <circle cx="158" cy="142" r="2.5" fill="#FFFFFF" fill-opacity="0.3"/>
+                    </g>
+                  </svg>
+                </div>
+
+                <!-- Floating Interactive Glass Badges (Apple-style) -->
+                <div class="absolute top-4 right-4 z-20 pointer-events-none">
+                  <div class="px-3 py-1.5 rounded-xl apple-glass text-[11px] font-semibold text-slate-200 shadow-lg border border-white/10 flex items-center gap-1.5 animate-float-slow">
+                    <span class="w-2 h-2 rounded-full bg-brand-mint"></span>
+                    <span>سنسور Sony 4K STARVIS 2</span>
+                  </div>
+                </div>
+
+                <!-- Mobile Gyroscope Motion Tracking Indicator -->
+                <div id="gyroIndicator" class="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-brand-navy-dark/85 backdrop-blur-md border border-brand-mint/30 text-[10px] font-bold text-brand-mint shadow-md cursor-pointer active:scale-95 transition-all">
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-mint opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-mint"></span>
+                  </span>
+                  <span id="gyroIndicatorText">سنسور حرکتی فعال</span>
+                </div>
+
+                <div class="absolute bottom-4 left-4 z-20 pointer-events-none">
+                  <div class="px-3 py-1.5 rounded-xl apple-glass text-[11px] font-semibold text-slate-200 shadow-lg border border-white/10 flex items-center gap-1.5 animate-float-slow" style="animation-delay: 1.5s;">
+                    <svg class="w-3.5 h-3.5 text-brand-mint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <span>استاندارد نفوذناپذیر IP67</span>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Interactive Camera Control Toggles -->
+              <div class="mt-4 pt-3 flex flex-wrap items-center justify-between gap-2 text-xs">
+                <span class="text-slate-400 font-medium">قابلیت‌های زنده:</span>
+                <div class="flex items-center gap-1.5 sm:gap-2">
+                  <button id="toggleNightVision" class="px-2.5 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-brand-mint transition-all flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <span>دید در شب</span>
+                  </button>
+                  <button id="toggleScan" class="px-2.5 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-brand-mint transition-all flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+                    <span>اسکن هوش مصنوعی</span>
+                  </button>
+                  <button id="gyroSensorBtn" class="px-2.5 py-1.5 rounded-xl bg-brand-mint/10 border border-brand-mint/30 text-brand-mint hover:bg-brand-mint/20 transition-all flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="3"></rect><line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2.5"></line></svg>
+                    <span>ژیروسکوپ</span>
+                  </button>
+                  <button id="centerLensBtn" class="px-2.5 py-1.5 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-brand-mint hover:bg-white/10 transition-all">
+                    ردیابی ۳۶۰°
+                  </button>
+                </div>
+              </div>
+
+              <!-- Mobile Gyroscope Activation & Status Banner -->
+              <div id="sensorPromptBanner" class="mt-3.5 p-3 rounded-2xl bg-brand-navy-dark/95 border border-brand-mint/40 flex items-center justify-between gap-2.5 sm:hidden shadow-lg">
+                <div class="flex items-center gap-2">
+                  <span class="relative flex h-2.5 w-2.5 shrink-0">
+                    <span id="sensorPingDot" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-mint opacity-75"></span>
+                    <span id="sensorSolidDot" class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-mint"></span>
+                  </span>
+                  <div class="text-[11px] font-bold text-slate-100 leading-tight">
+                    <span id="sensorStatusMain">حرکت با سنسور گوشی:</span>
+                    <span id="sensorStatusSub" class="text-brand-mint font-extrabold mr-1">آماده اتصال</span>
+                  </div>
+                </div>
+                <button id="activateSensorActionBtn" type="button" class="px-3.5 py-1.5 rounded-xl bg-brand-mint text-brand-navy-dark text-xs font-black hover:bg-brand-mint-hover shadow-mint-glow-sm active:scale-95 transition-all shrink-0 whitespace-nowrap">
+                  فعال‌سازی سنسور
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 2.5 INSTAGRAM-STYLE VERIFIED CLIENT STORIES BAR                           -->
+    <!-- ========================================================================= -->
+    <section class="py-8 bg-brand-navy/40 border-y border-white/5 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between gap-4 mb-4">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-brand-mint animate-ping"></span>
+            <span class="text-xs sm:text-sm font-black text-white">پروژه‌های زنده و رضایت مشتریان آرت لنز</span>
+          </div>
+          <span class="text-[11px] text-brand-mint font-semibold">برای مشاهده ویدیو کلیک کنید</span>
+        </div>
+
+        <!-- Horizontal Scrollable Story Avatars -->
+        <div class="flex items-center gap-4 sm:gap-6 overflow-x-auto pb-2 scrollbar-none" id="storiesRow">
+          
+          <!-- Story 1 -->
+          <button type="button" class="story-item flex flex-col items-center gap-2 shrink-0 group focus:outline-none" data-story-id="0">
+            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2.5px] story-ring-gradient group-hover:scale-105 transition-transform duration-300 shadow-mint-glow-sm">
+              <div class="w-full h-full rounded-full bg-brand-navy-dark p-0.5 overflow-hidden">
+                <div class="w-full h-full rounded-full bg-gradient-to-br from-emerald-600 to-teal-900 flex items-center justify-center text-white text-xs font-black">
+                  🏡 ویلا
+                </div>
+              </div>
+            </div>
+            <span class="text-[11px] font-bold text-slate-200 group-hover:text-brand-mint transition-colors">ویلای لواسان</span>
+          </button>
+
+          <!-- Story 2 -->
+          <button type="button" class="story-item flex flex-col items-center gap-2 shrink-0 group focus:outline-none" data-story-id="1">
+            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2.5px] story-ring-gradient group-hover:scale-105 transition-transform duration-300 shadow-mint-glow-sm">
+              <div class="w-full h-full rounded-full bg-brand-navy-dark p-0.5 overflow-hidden">
+                <div class="w-full h-full rounded-full bg-gradient-to-br from-amber-600 to-yellow-900 flex items-center justify-center text-white text-xs font-black">
+                  💎 طلا
+                </div>
+              </div>
+            </div>
+            <span class="text-[11px] font-bold text-slate-200 group-hover:text-brand-mint transition-colors">طلافروشی بازار</span>
+          </button>
+
+          <!-- Story 3 -->
+          <button type="button" class="story-item flex flex-col items-center gap-2 shrink-0 group focus:outline-none" data-story-id="2">
+            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2.5px] story-ring-gradient group-hover:scale-105 transition-transform duration-300 shadow-mint-glow-sm">
+              <div class="w-full h-full rounded-full bg-brand-navy-dark p-0.5 overflow-hidden">
+                <div class="w-full h-full rounded-full bg-gradient-to-br from-blue-600 to-indigo-900 flex items-center justify-center text-white text-xs font-black">
+                  🏭 سوله
+                </div>
+              </div>
+            </div>
+            <span class="text-[11px] font-bold text-slate-200 group-hover:text-brand-mint transition-colors">کارخانه صفادشت</span>
+          </button>
+
+          <!-- Story 4 -->
+          <button type="button" class="story-item flex flex-col items-center gap-2 shrink-0 group focus:outline-none" data-story-id="3">
+            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2.5px] story-ring-gradient group-hover:scale-105 transition-transform duration-300 shadow-mint-glow-sm">
+              <div class="w-full h-full rounded-full bg-brand-navy-dark p-0.5 overflow-hidden">
+                <div class="w-full h-full rounded-full bg-gradient-to-br from-purple-600 to-slate-900 flex items-center justify-center text-white text-xs font-black">
+                  🏢 برج
+                </div>
+              </div>
+            </div>
+            <span class="text-[11px] font-bold text-slate-200 group-hover:text-brand-mint transition-colors">برج فرمانیه</span>
+          </button>
+
+          <!-- Story 5 -->
+          <button type="button" class="story-item flex flex-col items-center gap-2 shrink-0 group focus:outline-none" data-story-id="4">
+            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2.5px] story-ring-gradient group-hover:scale-105 transition-transform duration-300 shadow-mint-glow-sm">
+              <div class="w-full h-full rounded-full bg-brand-navy-dark p-0.5 overflow-hidden">
+                <div class="w-full h-full rounded-full bg-gradient-to-br from-cyan-600 to-blue-950 flex items-center justify-center text-white text-xs font-black">
+                  🌊 IP67
+                </div>
+              </div>
+            </div>
+            <span class="text-[11px] font-bold text-slate-200 group-hover:text-brand-mint transition-colors">تست غوطه‌وری آب</span>
+          </button>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 2.6 INTERACTIVE NIGHT-VISION COMPARISON SLIDER (Before/After)              -->
+    <!-- ========================================================================= -->
+    <section id="comparison" class="py-20 bg-brand-navy-dark relative overflow-hidden">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-brand-mint text-xs sm:text-sm font-bold tracking-widest uppercase mb-2.5 block">
+            سنسور SONY STARVIS 2 در تاریکی مطلق
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4">
+            دید در شب رنگی آرت لنز در برابر دوربین‌های سنتی
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+            دستگیره وسط را به طرفین بکشید تا تفاوت وضوح چهره، تفکیک رنگ پلاک و عدم وجود نقطه کور در تاریکی شب را مشاهده کنید.
+          </p>
+        </div>
+
+        <!-- Interactive Slider Box -->
+        <div class="relative w-full h-80 sm:h-[480px] rounded-3xl overflow-hidden shadow-2xl border border-white/15 comparison-slider-container group cursor-ew-resize" id="comparisonSliderBox">
+          
+          <!-- Layer 1: Underneath (Traditional B&W IR Grainy Camera) -->
+          <div class="absolute inset-0 w-full h-full bg-[#0a0f14] overflow-hidden select-none">
+            <!-- Simulated CCTV IR Grayscale View -->
+            <div class="absolute inset-0 bg-gradient-to-b from-[#151b22] via-[#0b1015] to-[#050709] filter contrast-125 brightness-90"></div>
+            <!-- Center Harsh IR Flashlight Spot -->
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.3)_0%,rgba(0,0,0,0.85)_70%)]"></div>
+            <!-- Grain & Static Lines -->
+            <div class="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.4)_51%)] bg-[size:100%_4px] opacity-70 pointer-events-none"></div>
+
+            <!-- Subject: Car & Intruder Outline (Blurry/Blown Out) -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div class="relative w-72 sm:w-96 text-center opacity-70 filter grayscale">
+                <!-- Vehicle Silhouette -->
+                <div class="w-64 sm:w-80 h-32 mx-auto bg-slate-600/40 rounded-2xl border border-slate-500/30 flex items-center justify-center relative">
+                  <div class="absolute top-3 left-6 w-8 h-8 rounded-full bg-white/60 blur-sm"></div>
+                  <div class="absolute top-3 right-6 w-8 h-8 rounded-full bg-white/60 blur-sm"></div>
+                  <!-- Blurry Unreadable License Plate -->
+                  <div class="px-4 py-1.5 rounded bg-slate-400/30 text-white/50 text-xs font-mono tracking-widest blur-[2px]">
+                    █████████
+                  </div>
+                </div>
+                <span class="text-xs text-slate-400 font-mono mt-2 block tracking-wider">NOISY IR • BLURRED DETAILS</span>
+              </div>
+            </div>
+
+            <!-- Right Badge: Traditional Camera -->
+            <div class="absolute top-5 left-5 z-10 px-3.5 py-1.5 rounded-xl bg-black/80 backdrop-blur-md border border-red-500/40 text-red-400 text-xs font-bold flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-red-500"></span>
+              <span>دوربین‌های معمولی (سیاه‌سفید با نویز)</span>
+            </div>
+            
+            <div class="absolute bottom-5 left-5 z-10 text-[11px] font-mono text-slate-400 bg-black/60 px-3 py-1 rounded-lg backdrop-blur-sm">
+              CAM 01 • IR ACTIVE • 15 FPS • 1080P
+            </div>
+          </div>
+
+          <!-- Layer 2: On Top Clipped (Art Lenz Full-Color 4K Starvis 2) -->
+          <div class="absolute inset-0 w-full h-full overflow-hidden select-none" id="comparisonClippedLayer" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);">
+            <!-- Simulated 4K Full Color Night Vision -->
+            <div class="absolute inset-0 bg-gradient-to-b from-[#0c2438] via-[#091724] to-[#040a10]"></div>
+            <!-- Natural Ambient Street Lighting Simulation -->
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(91,244,163,0.15)_0%,rgba(0,210,255,0.08)_40%,transparent_80%)]"></div>
+
+            <!-- Subject: Car & Intruder (Vibrant, 4K Sharp, Legible Plate) -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div class="relative w-72 sm:w-96 text-center">
+                <!-- Vehicle in Full Color -->
+                <div class="w-64 sm:w-80 h-32 mx-auto bg-gradient-to-b from-[#1C3B5E] to-[#0F1E2E] rounded-2xl border-2 border-brand-mint/60 shadow-[0_0_25px_rgba(91,244,163,0.2)] flex items-center justify-center relative">
+                  <!-- LED Headlights -->
+                  <div class="absolute top-3 left-6 w-8 h-8 rounded-full bg-cyan-300 shadow-[0_0_15px_#00D2FF]"></div>
+                  <div class="absolute top-3 right-6 w-8 h-8 rounded-full bg-cyan-300 shadow-[0_0_15px_#00D2FF]"></div>
+                  
+                  <!-- Crystal Clear License Plate -->
+                  <div class="px-3.5 py-1 rounded-md bg-white text-slate-900 text-xs font-black tracking-wider border border-brand-mint shadow-md flex items-center gap-1.5">
+                    <span class="w-2.5 h-4 bg-blue-700 rounded-sm"></span>
+                    <span>ایران ۷۷ | ۲۴۵ ط ۱۲</span>
+                  </div>
+                </div>
+
+                <!-- AI Bounding Box & Target Lock -->
+                <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-mint/20 border border-brand-mint text-brand-mint text-[11px] font-black tracking-wide animate-pulse">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                  <span>AI DETECT: خودرو تأییدشده • تطبیق ۹۹.۸٪</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Left Badge: Art Lenz 4K Full Color -->
+            <div class="absolute top-5 right-5 z-10 px-3.5 py-1.5 rounded-xl bg-brand-navy-dark/85 backdrop-blur-md border border-brand-mint/50 text-brand-mint text-xs font-black flex items-center gap-2 shadow-mint-glow-sm">
+              <span class="w-2.5 h-2.5 rounded-full bg-brand-mint animate-pulse"></span>
+              <span>آرت لنز (دید در شب رنگی 4K STARVIS 2)</span>
+            </div>
+
+            <div class="absolute bottom-5 right-5 z-10 text-[11px] font-mono text-brand-mint bg-brand-navy-dark/80 px-3 py-1 rounded-lg backdrop-blur-sm border border-brand-mint/30">
+              ARTLENZ 4K • COLOR AT NIGHT • 60 FPS
+            </div>
+          </div>
+
+          <!-- The Draggable Divider Handle Line -->
+          <div class="absolute top-0 bottom-0 w-1 bg-brand-mint cursor-ew-resize shadow-[0_0_15px_#5BF4A3] z-20 flex items-center justify-center comparison-handle" id="comparisonSliderHandle" style="left: 50%;">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 -ml-0.5 rounded-full bg-brand-navy-dark border-2 border-brand-mint text-brand-mint flex items-center justify-center shadow-mint-glow active:scale-110 transition-transform">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="8 16 4 12 8 8"/>
+                <polyline points="16 8 20 12 16 16"/>
+              </svg>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Slider Quick Tips Bar -->
+        <div class="mt-6 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400 bg-white/5 p-4 rounded-2xl border border-white/10">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-brand-mint"></span>
+            <span class="text-white font-bold">دریچه دیافراگم بزرگ F1.0:</span>
+            <span>جذب نور تا ۴ برابر بیشتر از لنزهای عادی</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-brand-mint"></span>
+            <span class="text-white font-bold">الگوریتم کاهش نویز 3D DNR:</span>
+            <span>حذف کامل دانه‌دانه‌های تصویر در تاریکی</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 2.7 AI SPACE PLANNER (طراحی و چیدمان دوربین با هوش مصنوعی)                  -->
+    <!-- ========================================================================= -->
+    <section id="aiPlanner" class="py-24 bg-brand-navy-dark relative overflow-hidden border-t border-white/10">
+      <!-- Ambient Backdrops -->
+      <div class="absolute top-0 right-1/3 w-[500px] h-[500px] bg-brand-mint/10 pointer-events-none rounded-full blur-3xl opacity-40"></div>
+      <div class="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-blue-600/10 pointer-events-none rounded-full blur-3xl opacity-30"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-mint/10 border border-brand-mint/30 text-brand-mint text-xs sm:text-sm font-black mb-4 shadow-[0_0_15px_rgba(91,244,163,0.15)]">
+            <span class="w-2 h-2 rounded-full bg-brand-mint animate-ping"></span>
+            مجهز به موتور هوش مصنوعی بینایی آرت لنز (ArtLenz Vision AI)
+          </div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-4 leading-tight">
+            تحلیل هوشمند فضا و جانمایی خودکار دوربین‌ها با <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-mint via-emerald-400 to-cyan-400">AI</span>
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed">
+            عکس حیاط، پارکینگ، ویلا، فروشگاه یا نقشه پلان خود را بارگذاری کنید. هوش مصنوعی ما نقاط کور را شناسایی کرده و تعداد دقیق دوربین، متراژ کابل شبکه، مدل لنز و ظرفیت هارد را بی‌درنگ برآورد می‌کند.
+          </p>
+        </div>
+
+        <!-- Quick Sample Presets Bar -->
+        <div class="mb-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <span class="text-xs text-slate-400 font-bold shrink-0">یا تست فوری با نمونه‌های آماده:</span>
+          <div class="flex flex-wrap items-center justify-center gap-2">
+            <button type="button" class="ai-sample-btn px-3.5 py-1.5 rounded-xl bg-white/5 hover:bg-brand-mint/15 border border-white/10 hover:border-brand-mint/40 text-xs font-semibold text-slate-200 hover:text-brand-mint transition-all" data-sample="villa">
+              🏡 حیاط و محوطه ویلایی
+            </button>
+            <button type="button" class="ai-sample-btn px-3.5 py-1.5 rounded-xl bg-white/5 hover:bg-brand-mint/15 border border-white/10 hover:border-brand-mint/40 text-xs font-semibold text-slate-200 hover:text-brand-mint transition-all" data-sample="parking">
+              🚗 پارکینگ مجتمع مسکونی
+            </button>
+            <button type="button" class="ai-sample-btn px-3.5 py-1.5 rounded-xl bg-white/5 hover:bg-brand-mint/15 border border-white/10 hover:border-brand-mint/40 text-xs font-semibold text-slate-200 hover:text-brand-mint transition-all" data-sample="floorplan">
+              🏢 نقشه و پلان معماری
+            </button>
+            <button type="button" class="ai-sample-btn px-3.5 py-1.5 rounded-xl bg-white/5 hover:bg-brand-mint/15 border border-white/10 hover:border-brand-mint/40 text-xs font-semibold text-slate-200 hover:text-brand-mint transition-all" data-sample="store">
+              🏪 فروشگاه و فضای تجاری
+            </button>
+          </div>
+        </div>
+
+        <!-- Main AI Workbench Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Left Column: Visual Canvas & Scanner (7 cols) -->
+          <div class="lg:col-span-7 flex flex-col gap-4">
+            
+            <!-- Visual Container with Drag-Drop & Scanner -->
+            <div id="aiCanvasWrapper" class="relative w-full rounded-3xl apple-glass border border-white/15 overflow-hidden bg-slate-950/80 shadow-2xl min-h-[380px] sm:min-h-[460px] flex items-center justify-center">
+              
+              <!-- Empty Upload Prompt State -->
+              <div id="aiEmptyPrompt" class="flex flex-col items-center justify-center p-8 sm:p-12 text-center select-none cursor-pointer w-full h-full">
+                <div class="w-20 h-20 rounded-3xl bg-brand-mint/10 border border-brand-mint/20 flex items-center justify-center text-brand-mint mb-5 shadow-mint-glow-sm">
+                  <svg class="w-10 h-10 animate-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="17 8 12 3 7 8"/>
+                    <line x1="12" y1="3" x2="12" y2="15"/>
+                  </svg>
+                </div>
+                <h4 class="text-lg sm:text-xl font-black text-white mb-2">عکس فضا یا نقشه پلان را اینجا رها کنید</h4>
+                <p class="text-xs sm:text-sm text-slate-400 mb-6 max-w-sm">
+                  پشتیبانی از فرمت‌های JPG، PNG و WebP (حداکثر ۱۰ مگابایت) یا انتخاب از گالری و دوربین گوشی
+                </p>
+                <div class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-brand-mint text-brand-navy-dark font-black text-xs sm:text-sm hover:brightness-110 active:scale-95 transition-all shadow-mint-glow-sm">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                  انتخاب عکس از دستگاه
+                </div>
+              </div>
+
+              <!-- Real / Preview Image Element -->
+              <img id="aiPreviewImage" src="" alt="پیش‌نمایش فضا" class="hidden w-full h-auto max-h-[520px] object-contain select-none transition-all duration-500">
+
+              <!-- Interactive Pin Markers Overlay -->
+              <div id="aiPinsOverlay" class="absolute inset-0 pointer-events-none z-20"></div>
+
+              <!-- High-Tech Laser Scanning Overlay -->
+              <div id="aiScanOverlay" class="hidden absolute inset-0 z-30 bg-slate-950/70 backdrop-blur-[2px] flex flex-col items-center justify-between p-6">
+                <!-- Tactical HUD Grid -->
+                <div class="absolute inset-0 ai-hud-grid opacity-30 pointer-events-none"></div>
+
+                <!-- Laser Sweep Beam -->
+                <div class="ai-scan-laser"></div>
+
+                <!-- Scanner Top Bar -->
+                <div class="relative z-40 w-full flex items-center justify-between bg-white/5 border border-white/10 px-4 py-2 rounded-2xl backdrop-blur-md">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-brand-mint animate-ping"></span>
+                    <span class="text-xs font-black text-brand-mint tracking-wider">ARTLENZ VISION AI SCANNER</span>
+                  </div>
+                  <span class="text-[11px] font-mono text-slate-300">FPS: 60 • 4K RES</span>
+                </div>
+
+                <!-- Scanner Center Radar Pulse -->
+                <div class="relative z-40 flex flex-col items-center justify-center my-auto">
+                  <div class="relative flex items-center justify-center w-24 h-24 rounded-full bg-brand-mint/10 border-2 border-brand-mint/40 animate-pulse">
+                    <div class="w-16 h-16 rounded-full border border-brand-mint/60 flex items-center justify-center">
+                      <svg class="w-8 h-8 text-brand-mint animate-spin" style="animation-duration: 4s;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="m4.93 4.93 4.24 4.24"/>
+                        <path d="m14.83 9.17 4.24-4.24"/>
+                        <path d="m14.83 14.83 4.24 4.24"/>
+                        <path d="m9.17 14.83-4.24 4.24"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Scanner Bottom Telemetry Feed -->
+                <div class="relative z-40 w-full bg-black/60 border border-brand-mint/30 px-4 py-3 rounded-2xl backdrop-blur-md">
+                  <div class="flex items-center justify-between mb-1.5 text-xs">
+                    <span class="text-brand-mint font-bold flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-brand-mint"></span>
+                      <span id="aiTelemetryStatus">در حال پردازش شبکه‌های عصبی...</span>
+                    </span>
+                    <span class="font-mono text-white font-bold" id="aiScanPercent">45%</span>
+                  </div>
+                  <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                    <div id="aiScanProgressBar" class="h-full bg-gradient-to-r from-brand-mint to-cyan-400 w-[45%] transition-all duration-300"></div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Hidden File Input -->
+              <input type="file" id="aiImageInput" accept="image/*" class="hidden">
+            </div>
+
+            <!-- Context Customizer Controls (Space Type & Prompt Notes) -->
+            <div class="p-5 rounded-2xl apple-glass border border-white/10 flex flex-col sm:flex-row items-center gap-4">
+              <div class="w-full sm:w-1/3">
+                <label for="aiSpaceTypeSelect" class="block text-[11px] font-bold text-slate-400 mb-1.5">نوع کاربری فضا:</label>
+                <select id="aiSpaceTypeSelect" class="w-full bg-brand-navy-dark border border-white/15 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-brand-mint">
+                  <option value="auto">تشخیص خودکار با هوش مصنوعی</option>
+                  <option value="villa">ویلایی و باغ محوطه باز</option>
+                  <option value="residential">آپارتمان و پارکینگ مسکونی</option>
+                  <option value="commercial">فروشگاهی و تجاری</option>
+                  <option value="industrial">سوله و انبار صنعتی</option>
+                  <option value="office">دفتر اداری و شرکت</option>
+                </select>
+              </div>
+
+              <div class="w-full sm:w-2/3">
+                <label for="aiUserNotesInput" class="block text-[11px] font-bold text-slate-400 mb-1.5">نکات یا اولویت خاص شما (اختیاری):</label>
+                <div class="flex items-center gap-2">
+                  <input type="text" id="aiUserNotesInput" placeholder="مثلاً: خواندن دقیق پلاک در ورودی یا پوشش استخر" class="w-full bg-brand-navy-dark border border-white/15 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-mint">
+                  <button type="button" id="aiTriggerAnalysisBtn" class="shrink-0 px-4 py-2.5 rounded-xl bg-brand-mint hover:bg-brand-mint/90 text-brand-navy-dark font-black text-xs flex items-center gap-1.5 active:scale-[0.98] transition-all shadow-mint-glow-sm">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    تحلیل فضا
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Engineering Breakdown & Instant Quote Card (5 cols) -->
+          <div class="lg:col-span-5 flex flex-col gap-4">
+            
+            <!-- Default Placeholder State (Before Scan) -->
+            <div id="aiPreAnalysisCard" class="rounded-3xl apple-glass p-8 border border-white/10 text-center flex flex-col items-center justify-center min-h-[460px]">
+              <div class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-mint mb-5">
+                <svg class="w-8 h-8 opacity-80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">هنوز تصویری تحلیل نشده است</h3>
+              <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm mb-6">
+                یک تصویر بارگذاری کنید یا روی یکی از «نمونه‌های آماده» در بالا کلیک کنید تا سیستم مهندسی هوشمند شروع به کار کند.
+              </p>
+              <div class="space-y-3 w-full max-w-xs text-right text-xs text-slate-300">
+                <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white/5 border border-white/5">
+                  <span class="w-2 h-2 rounded-full bg-brand-mint"></span>
+                  <span>محاسبه بدون نقطه کور با زاویه لنز ۲.۸ و ۳.۶</span>
+                </div>
+                <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white/5 border border-white/5">
+                  <span class="w-2 h-2 rounded-full bg-brand-mint"></span>
+                  <span>متراژ کابل شبکه تمام‌مس مسافت‌سنجی‌شده</span>
+                </div>
+                <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white/5 border border-white/5">
+                  <span class="w-2 h-2 rounded-full bg-brand-mint"></span>
+                  <span>تولید پیش‌فاکتور رسمی و افزودن مستقیم به سبد خرید</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Analysis Results Card (Revealed after Scan) -->
+            <div id="aiPostAnalysisCard" class="hidden rounded-3xl apple-glass p-6 sm:p-7 border border-brand-mint/30 shadow-[0_0_30px_rgba(91,244,163,0.1)] flex flex-col justify-between">
+              
+              <div class="space-y-5">
+                <!-- Result Header & Badges -->
+                <div class="flex items-center justify-between pb-4 border-b border-white/10">
+                  <div>
+                    <span class="text-[10px] text-brand-mint font-bold tracking-wider uppercase block">محیط شناسایی‌شده:</span>
+                    <h3 class="text-lg font-black text-white" id="aiResultEnvTitle">حیاط و محوطه ویلایی</h3>
+                  </div>
+                  <div class="text-left">
+                    <span class="text-[10px] text-slate-400 block">پوشش امنیتی:</span>
+                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-black">
+                      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                      ۱۰۰٪ بدون نقطه کور
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Cameras Section -->
+                <div>
+                  <h4 class="text-xs font-black text-slate-200 flex items-center gap-2 mb-3">
+                    <span class="w-2 h-2 rounded-full bg-brand-mint"></span>
+                    دوربین‌های پیشنهادی AI:
+                  </h4>
+                  <div id="aiResultCameras" class="space-y-2.5">
+                    <!-- Dynamic Camera Rows -->
+                  </div>
+                </div>
+
+                <!-- Cabling & NVR / HDD Section -->
+                <div class="grid grid-cols-2 gap-3 pt-2 border-t border-white/10">
+                  <!-- Cabling -->
+                  <div class="p-3 rounded-2xl bg-white/5 border border-white/5">
+                    <span class="text-[10px] text-slate-400 block mb-1">کابل‌کشی برآوردشده:</span>
+                    <span class="text-xs font-bold text-white block" id="aiResultCablingMeters">۱۲۰ متر کابل Cat6 SFTP</span>
+                    <span class="text-[10px] text-slate-400" id="aiResultCablingDesc">Outdoor تمام مس ضدآفتاب</span>
+                  </div>
+                  <!-- Storage & NVR -->
+                  <div class="p-3 rounded-2xl bg-white/5 border border-white/5">
+                    <span class="text-[10px] text-slate-400 block mb-1">ضبط و ذخیره‌سازی:</span>
+                    <span class="text-xs font-bold text-white block" id="aiResultStorageHDD">هارد ۲ ترابایت بنفش WD</span>
+                    <span class="text-[10px] text-slate-400" id="aiResultStorageDays">۲۲ روز ضبط مداوم 4K</span>
+                  </div>
+                </div>
+
+                <!-- Security Insights & Pro Tip -->
+                <div class="p-3.5 rounded-2xl bg-brand-mint/5 border border-brand-mint/20 text-xs text-slate-300">
+                  <div class="flex items-center gap-1.5 text-brand-mint font-bold mb-1">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    توصیه اختصاصی مهندس هوش مصنوعی:
+                  </div>
+                  <p id="aiResultProTip" class="text-[11px] leading-relaxed text-slate-300">
+                    نصب دوربین بولت با زاویه تابش لنز ۲.۸ میلی‌متری روی دیوار ضلع غربی جهت حذف بازتاب نور خورشید در عصرها توصیه می‌گردد.
+                  </p>
+                </div>
+
+                <!-- Price Breakdown Block -->
+                <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+                  <div>
+                    <span class="text-[11px] text-slate-400 block">برآورد کل پکیج + نصب:</span>
+                    <span class="text-xs line-through text-slate-500 font-mono" id="aiResultOldPrice">۲۴,۹۰۰,۰۰۰ تومان</span>
+                  </div>
+                  <div class="text-left">
+                    <span class="text-lg sm:text-xl font-black text-brand-mint font-mono" id="aiResultFinalPrice">۲۱,۵۰۰,۰۰۰ تومان</span>
+                    <span class="text-[10px] text-emerald-400 block font-bold">شامل تخفیف هوشمند پکیج</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action CTAs -->
+              <div class="mt-6 pt-4 border-t border-white/10 space-y-2.5">
+                <!-- 1. Add All to Cart -->
+                <button type="button" id="aiAddToCartBtn" class="w-full py-3.5 rounded-2xl bg-brand-mint hover:bg-brand-mint/90 text-brand-navy-dark font-black text-xs sm:text-sm flex items-center justify-center gap-2 active:scale-95 transition-all shadow-mint-glow-sm">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                  افزودن این پکیج هوشمند به سبد خرید
+                </button>
+
+                <div class="grid grid-cols-2 gap-2">
+                  <!-- 2. Get Official PDF Quote -->
+                  <button type="button" id="aiGetQuoteBtn" class="w-full py-2.5 px-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-slate-200 hover:text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all">
+                    <svg class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    پیش‌فاکتور رسمی PDF
+                  </button>
+
+                  <!-- 3. Consult via WhatsApp with pre-filled AI details -->
+                  <button type="button" id="aiWhatsAppBtn" class="w-full py-2.5 px-2 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/30 text-emerald-300 font-bold text-xs flex items-center justify-center gap-1.5 transition-all">
+                    <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    ارسال تحلیل به واتساپ
+                  </button>
+                </div>
+
+                <!-- 4. Reset Button -->
+                <button type="button" id="aiResetBtn" class="w-full py-2 text-center text-xs text-slate-400 hover:text-slate-200 transition-colors">
+                  🔄 تحلیل مجدد یا بارگذاری تصویر جدید
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="services" class="py-20 bg-brand-navy-dark/60 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header (Clean, High Contrast) -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-brand-mint text-xs sm:text-sm font-bold tracking-widest uppercase mb-3 block">
+            سبد جامع راهکارها
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4">
+            تجهیزات متناسب با نیاز دقیق شما
+          </h2>
+          <p class="text-slate-400 text-base sm:text-lg">
+            از یک خانه هوشمند جمع‌وجور تا محوطه‌های صنعتی چند ده‌هکتاری، با بالاترین استاندارد نظارتی.
+          </p>
+        </div>
+
+        <!-- 3 Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Card 1: دوربین‌های خانگی و هوشمند -->
+          <div class="group relative rounded-3xl apple-glass p-8 transition-all duration-300 apple-glass-hover flex flex-col justify-between">
+            <div class="relative z-10">
+              <!-- Card Icon with Mint Accent -->
+              <div class="w-14 h-14 rounded-2xl bg-brand-mint/10 border border-brand-mint/20 flex items-center justify-center text-brand-mint mb-6 group-hover:scale-110 group-hover:bg-brand-mint group-hover:text-brand-navy-dark transition-all duration-300">
+                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+              </div>
+
+              <!-- Badge -->
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-slate-300 border border-white/10 mb-3">
+                ویژه آپارتمان و ویلا
+              </span>
+
+              <!-- Title -->
+              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-brand-mint transition-colors">
+                دوربین‌های خانگی
+              </h3>
+
+              <!-- Description -->
+              <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                سیستم‌های بی‌سیم بدون نیاز به کابل‌کشی، مجهز به مکالمه دوطرفه، تشخیص گریه کودک و حیوانات خانگی، با نصب فوق‌العاده سریع و کنترل از طریق تلفن همراه.
+              </p>
+
+              <!-- Feature Bullets -->
+              <ul class="space-y-2.5 text-xs text-slate-300 mb-8">
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-brand-mint shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>اتصال بی‌سیم Wi-Fi Dual Band با امنیت رمزنگاری AES-256</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-brand-mint shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>قابلیت چرخش ۳۶۰ درجه افقی و تعقیب سوژه</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-brand-mint shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>ذخیره‌سازی کارت حافظه تا ۲۵۶ گیگابایت + فضای ابری</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card Bottom CTA -->
+            <a href="#store" class="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-brand-mint text-sm font-bold group-hover:gap-3 transition-all">
+              <span>مشاهده و سفارش مدل‌های خانگی</span>
+              <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </a>
+          </div>
+
+          <!-- Card 2: راهکارهای جامع سازمانی -->
+          <div class="group relative rounded-3xl apple-glass p-8 transition-all duration-300 apple-glass-hover flex flex-col justify-between border-brand-mint/30 shadow-mint-glow-sm">
+            
+            <!-- Highlight Ribbon -->
+            <div class="absolute -top-3.5 right-8 bg-brand-mint text-brand-navy-dark font-extrabold text-[11px] px-3.5 py-1 rounded-full shadow-md">
+              انتخاب اول کارخانجات و برج‌ها
+            </div>
+
+            <div class="relative z-10">
+              <!-- Card Icon -->
+              <div class="w-14 h-14 rounded-2xl bg-brand-mint/15 border border-brand-mint/30 flex items-center justify-center text-brand-mint mb-6 group-hover:scale-110 group-hover:bg-brand-mint group-hover:text-brand-navy-dark transition-all duration-300">
+                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+                  <line x1="6" y1="6" x2="6.01" y2="6"/>
+                  <line x1="6" y1="18" x2="6.01" y2="18"/>
+                </svg>
+              </div>
+
+              <!-- Badge -->
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-slate-300 border border-white/10 mb-3">
+                مقیاس‌پذیر تا ۱۲۸ کانال
+              </span>
+
+              <!-- Title -->
+              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-brand-mint transition-colors">
+                راهکارهای سازمانی
+              </h3>
+
+              <!-- Description -->
+              <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                سیستم‌های مداربسته تحت شبکه IP، دوربین‌های ضد حریق و ضد انفجار، پلاک‌خوان هوشمند ANPR جاده‌ای، و سرورهای ذخیره‌سازی مرکزی NVR با افزونگی RAID.
+              </p>
+
+              <!-- Feature Bullets -->
+              <ul class="space-y-2.5 text-xs text-slate-300 mb-8">
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-brand-mint shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>پلاک‌خوانی دقیق در سرعت‌های بالا و تاریکی مطلق</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-brand-mint shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>تشخیص چهره، تردد پرسنل و اعلام ورود به حریم ممنوعه</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-brand-mint shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>یکپارچه‌سازی با سیستم‌های کنترل تردد و دزدگیر مرکزی</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card Bottom CTA -->
+            <a href="#booking" class="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-brand-mint text-sm font-bold group-hover:gap-3 transition-all">
+              <span>درخواست مشاوره پروژه سازمانی</span>
+              <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </a>
+          </div>
+
+          <!-- Card 3: خدمات کابل‌کشی و نصب مهندسی -->
+          <div class="group relative rounded-3xl apple-glass p-8 transition-all duration-300 apple-glass-hover flex flex-col justify-between">
+            <div class="relative z-10">
+              <!-- Card Icon -->
+              <div class="w-14 h-14 rounded-2xl bg-brand-mint/10 border border-brand-mint/20 flex items-center justify-center text-brand-mint mb-6 group-hover:scale-110 group-hover:bg-brand-mint group-hover:text-brand-navy-dark transition-all duration-300">
+                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                </svg>
+              </div>
+
+              <!-- Badge -->
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-slate-300 border border-white/10 mb-3">
+                تیم فنی با تاییدیه نظام مهندسی
+              </span>
+
+              <!-- Title -->
+              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-brand-mint transition-colors">
+                کابل‌کشی و نصب
+              </h3>
+
+              <!-- Description -->
+              <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                طراحی دقیق نقشه پوشش دوربین‌ها بدون نقطه کور، اجرای اصولی کابل شبکه CAT6 و فیبر نوری، لوله‌گذاری فلزی گالوانیزه، آرایش رک، و ضمانت دائم اتصالات.
+              </p>
+
+              <!-- Feature Bullets -->
+              <ul class="space-y-2.5 text-xs text-slate-300 mb-8">
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-brand-mint shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>تضمین عدم افت سیگنال با کابل تمام‌مس درجه یک</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-brand-mint shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>داکت‌کشی شیک و تمیز بدون آسیب به دکوراسیون داخلی</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-brand-mint shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>تنظیم زاویه دید میلی‌متری و تست انتقال تصویر رایگان</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card Bottom CTA -->
+            <a href="#booking" class="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-brand-mint text-sm font-bold group-hover:gap-3 transition-all">
+              <span>رزرو بازدید و کارشناسی حضوری</span>
+              <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 4. ENTERPRISE & HOME BANNER + 3-STEP TIMELINE (Deep Navy #131E29 + Mint)  -->
+    <!-- ========================================================================= -->
+    <section id="enterprise" class="py-24 bg-brand-navy relative overflow-hidden border-y border-white/10">
+      
+      <!-- Subtle Pattern Grid -->
+      <div class="absolute inset-0 bg-[radial-gradient(#5BF4A3_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.04]"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <!-- Big Brand Statement -->
+        <div class="text-center max-w-4xl mx-auto mb-20">
+          <span class="inline-block px-4 py-1.5 rounded-full bg-brand-mint/15 text-brand-mint font-bold text-xs sm:text-sm border border-brand-mint/30 mb-6">
+            مسیر مطمئن حفاظت تصویری
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-snug sm:leading-tight mb-6">
+            از یک اتاق تا یک کارخانه؛<br>
+            <span class="text-brand-mint underline decoration-brand-mint/30 decoration-wavy underline-offset-8">
+              ما امنیت شما را تضمین می‌کنیم.
+            </span>
+          </h2>
+          <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto font-normal leading-relaxed">
+            فرآیند اجرایی آرت لنز با مهندسی معکوس تهدیدات محیطی آغاز می‌شود؛ شفاف، دقیق، بدون هزینه‌های پنهان و با گام‌های حساب‌شده.
+          </p>
+        </div>
+
+        <!-- 3-Step Interactive Timeline -->
+        <div class="relative">
+          
+          <!-- Connecting Line (Desktop) -->
+          <div class="hidden md:block absolute top-1/2 right-12 left-12 h-0.5 bg-gradient-to-l from-brand-mint/20 via-brand-mint to-brand-mint/20 -translate-y-6 z-0"></div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+            
+            <!-- Step 1: مشاوره و بازدید -->
+            <div class="rounded-3xl apple-glass p-8 relative border border-white/10 hover:border-brand-mint/40 transition-all duration-300 flex flex-col items-center text-center group">
+              <!-- Step Number Badge -->
+              <div class="w-14 h-14 rounded-2xl bg-brand-navy-dark border-2 border-brand-mint text-brand-mint font-black text-xl flex items-center justify-center mb-6 shadow-mint-glow-sm group-hover:scale-110 transition-transform">
+                ۱
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3 group-hover:text-brand-mint transition-colors">
+                مشاوره و بازدید رایگان
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                کارشناس مجرب آرت لنز در محل حاضر شده و پس از بررسی نقاط کور، زوایای تابش نور و مسیرهای کابل‌کشی، نقشه اولیه را به رایگان طراحی می‌کند.
+              </p>
+              <span class="mt-auto inline-flex items-center text-xs font-semibold text-brand-mint">
+                بدون دریافت هیچ‌گونه هزینه بازدید
+              </span>
+            </div>
+
+            <!-- Step 2: انتخاب و خرید هوشمند -->
+            <div class="rounded-3xl apple-glass p-8 relative border border-white/10 hover:border-brand-mint/40 transition-all duration-300 flex flex-col items-center text-center group">
+              <!-- Step Number Badge -->
+              <div class="w-14 h-14 rounded-2xl bg-brand-navy-dark border-2 border-brand-mint text-brand-mint font-black text-xl flex items-center justify-center mb-6 shadow-mint-glow-sm group-hover:scale-110 transition-transform">
+                ۲
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3 group-hover:text-brand-mint transition-colors">
+                انتخاب و خرید تجهیزات
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                انتخاب شفاف دوربین‌ها، ضبط‌کننده NVR، هارددیسک‌های بنفش نظارتی و کابل‌های استاندارد بر اساس بودجه، همراه با فاکتور رسمی و ضمانت اصالت.
+              </p>
+              <span class="mt-auto inline-flex items-center text-xs font-semibold text-brand-mint">
+                ضمانت بازگشت وجه تا ۷ روز
+              </span>
+            </div>
+
+            <!-- Step 3: نصب و راه‌اندازی مهندسی -->
+            <div class="rounded-3xl apple-glass p-8 relative border border-white/10 hover:border-brand-mint/40 transition-all duration-300 flex flex-col items-center text-center group">
+              <!-- Step Number Badge -->
+              <div class="w-14 h-14 rounded-2xl bg-brand-navy-dark border-2 border-brand-mint text-brand-mint font-black text-xl flex items-center justify-center mb-6 shadow-mint-glow-sm group-hover:scale-110 transition-transform">
+                ۳
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3 group-hover:text-brand-mint transition-colors">
+                نصب و تحویل مهندسی
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                سیم‌کشی با استانداردهای نظام مهندسی، راه‌اندازی اپلیکیشن روی تلفن‌های همراه کل اعضای خانواده یا مدیران، و تحویل پروژه با آموزش کامل.
+              </p>
+              <span class="mt-auto inline-flex items-center text-xs font-semibold text-brand-mint">
+                پشتیبانی فنی اختصاصی ۲۴ ساعته
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Banner Action Footer -->
+        <div class="mt-14 text-center">
+          <a href="#booking" class="inline-flex items-center gap-3 px-9 py-4 rounded-2xl bg-brand-mint text-brand-navy-dark font-extrabold text-base hover:bg-brand-mint-hover hover:shadow-mint-glow active:scale-95 transition-all">
+            <span>ثبت درخواست بازدید فوری کارشناس</span>
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 5. INTERACTIVE COST ESTIMATOR (Apple Clean Glass Widget)                   -->
+    <!-- ========================================================================= -->
+    <section id="calculator" class="py-20 bg-brand-navy-dark relative">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-brand-mint text-xs sm:text-sm font-bold tracking-widest uppercase mb-2 block">
+            شفافیت در هزینه‌ها
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight mb-3">
+            محاسبه‌گر هوشمند هزینه پکیج و نصب
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base">
+            متراژ و تعداد دوربین‌های مورد نظرتان را مشخص کنید تا برآورد تقریبی قیمت را فوراً مشاهده نمایید.
+          </p>
+        </div>
+
+        <!-- Calculator Card -->
+        <div class="rounded-3xl apple-glass p-6 sm:p-10 border border-white/15 shadow-apple-card">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <!-- Controls (Right on RTL) -->
+            <div class="lg:col-span-7 space-y-6">
+              
+              <!-- Environment Type Selector -->
+              <div>
+                <label class="block text-sm font-semibold text-slate-200 mb-2.5">
+                  نوع محیط یا کاربری فضا:
+                </label>
+                <div class="grid grid-cols-3 gap-2.5" id="envSelector">
+                  <button type="button" data-multiplier="1.0" class="calc-env-btn active py-3 px-2 rounded-2xl bg-brand-mint text-brand-navy-dark font-bold text-xs sm:text-sm border border-brand-mint text-center transition-all">
+                    خانگی و ویلایی
+                  </button>
+                  <button type="button" data-multiplier="1.2" class="calc-env-btn py-3 px-2 rounded-2xl bg-white/5 text-slate-300 font-medium text-xs sm:text-sm border border-white/10 hover:border-white/20 text-center transition-all">
+                    اداری و فروشگاهی
+                  </button>
+                  <button type="button" data-multiplier="1.45" class="calc-env-btn py-3 px-2 rounded-2xl bg-white/5 text-slate-300 font-medium text-xs sm:text-sm border border-white/10 hover:border-white/20 text-center transition-all">
+                    سوله و کارخانه
+                  </button>
+                </div>
+              </div>
+
+              <!-- Camera Count Slider -->
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <label class="text-sm font-semibold text-slate-200">
+                    تعداد دوربین مورد نیاز:
+                  </label>
+                  <span id="cameraCountDisplay" class="text-base font-black text-brand-mint">
+                    ۴ دوربین
+                  </span>
+                </div>
+                <input type="range" id="cameraSlider" min="2" max="16" value="4" step="1" class="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-brand-mint">
+                <div class="flex justify-between text-[11px] text-slate-400 mt-1 font-medium">
+                  <span>۲ عدد</span>
+                  <span>۸ عدد</span>
+                  <span>۱۶ عدد</span>
+                </div>
+              </div>
+
+              <!-- Quality Resolution Selector -->
+              <div>
+                <label class="block text-sm font-semibold text-slate-200 mb-2.5">
+                  کیفیت سنسور تصویر:
+                </label>
+                <div class="grid grid-cols-2 gap-3" id="resSelector">
+                  <button type="button" data-res-addon="0" class="calc-res-btn active py-2.5 px-3 rounded-2xl bg-brand-mint/15 text-brand-mint border border-brand-mint font-bold text-xs sm:text-sm transition-all text-center">
+                    Full HD (دید در شب معمولی)
+                  </button>
+                  <button type="button" data-res-addon="2500000" class="calc-res-btn py-2.5 px-3 rounded-2xl bg-white/5 text-slate-300 border border-white/10 font-medium text-xs sm:text-sm hover:border-white/20 transition-all text-center">
+                    4K Ultra HD (دید در شب رنگی)
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Price Output Box (Left on RTL) -->
+            <div class="lg:col-span-5 rounded-2xl bg-brand-navy-dark/90 p-6 border border-brand-mint/30 flex flex-col justify-between text-center relative overflow-hidden">
+              <div class="absolute -top-10 -left-10 w-32 h-32 bg-brand-mint/10 rounded-full blur-2xl"></div>
+
+              <div>
+                <span class="text-xs text-slate-400 font-medium block mb-1">
+                  تخمین حدودی پکیج کامل با کابل و نصب
+                </span>
+                <div class="text-3xl sm:text-4xl font-black text-white tracking-tight my-3">
+                  <span id="estimatedPriceDisplay">۱۹,۸۰۰,۰۰۰</span>
+                  <span class="text-xs font-sans text-brand-mint mr-1">تومان</span>
+                </div>
+                <div class="space-y-1 text-xs text-slate-300 py-3 border-y border-white/10 text-right">
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">تجهیزات (دوربین، NVR، هارد):</span>
+                    <span id="equipPart">شامل پکیج کامل</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">کابل تمام مس و اتصالات:</span>
+                    <span id="cablePart">استاندارد</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">اجرت نصب و کانفیگ شبکه:</span>
+                    <span class="text-brand-mint">تضمین فنی</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 space-y-2.5">
+                <button type="button" id="applyToFormBtn" class="w-full py-3.5 rounded-xl bg-brand-mint text-brand-navy-dark font-extrabold text-sm hover:bg-brand-mint-hover hover:shadow-mint-glow-sm transition-all flex items-center justify-center gap-2">
+                  <span>ثبت همین پکیج برای مشاوره حضوری</span>
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <button type="button" id="openOfficialInvoiceBtn" class="w-full py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-xs border border-white/15 transition-all flex items-center justify-center gap-2">
+                  <svg class="w-4 h-4 text-brand-mint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                  <span>دریافت فوری پیش‌فاکتور رسمی با مُهر و شناسه (PDF)</span>
+                </button>
+                <span class="text-[11px] text-slate-400 block mt-1">
+                  قیمت نهایی پس از بازدید کارشناس قطعی می‌گردد.
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Hard Drive Storage Simulator Sub-Card -->
+        <div class="mt-8 rounded-3xl apple-glass p-6 sm:p-8 border border-white/15 shadow-apple-card relative overflow-hidden" id="storageSimulatorCard">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/10">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl bg-brand-mint/10 border border-brand-mint/30 flex items-center justify-center text-brand-mint">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-white">شبیه‌ساز هوشمند مدت زمان ضبط هارد دیسک (HDD)</h3>
+                <p class="text-xs text-slate-400">محاسبه دقیق تعداد روزهای آرشیو ویدیو بر اساس تعداد دوربین، رزولوشن و الگوریتم فشرده‌سازی +H.265</p>
+              </div>
+            </div>
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-purple-500/15 border border-purple-500/30 text-purple-300 text-xs font-bold">
+              <span>هارد مخصوص نظارتی WD Purple</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-6">
+            <!-- Controls (Right 7 cols) -->
+            <div class="lg:col-span-7 space-y-5">
+              <!-- HDD Size Selector -->
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-2">
+                  ظرفیت هارد دیسک نظارتی:
+                </label>
+                <div class="grid grid-cols-3 sm:grid-cols-6 gap-2" id="storageHddSelector">
+                  <button type="button" data-hdd="1" class="calc-hdd-btn active py-2 rounded-xl bg-brand-mint text-brand-navy-dark font-bold text-xs border border-brand-mint transition-all">۱ ترابایت</button>
+                  <button type="button" data-hdd="2" class="calc-hdd-btn py-2 rounded-xl bg-white/5 text-slate-300 font-medium text-xs border border-white/10 hover:border-white/20 transition-all">۲ ترابایت</button>
+                  <button type="button" data-hdd="4" class="calc-hdd-btn py-2 rounded-xl bg-white/5 text-slate-300 font-medium text-xs border border-white/10 hover:border-white/20 transition-all">۴ ترابایت</button>
+                  <button type="button" data-hdd="6" class="calc-hdd-btn py-2 rounded-xl bg-white/5 text-slate-300 font-medium text-xs border border-white/10 hover:border-white/20 transition-all">۶ ترابایت</button>
+                  <button type="button" data-hdd="8" class="calc-hdd-btn py-2 rounded-xl bg-white/5 text-slate-300 font-medium text-xs border border-white/10 hover:border-white/20 transition-all">۸ ترابایت</button>
+                  <button type="button" data-hdd="16" class="calc-hdd-btn py-2 rounded-xl bg-white/5 text-slate-300 font-medium text-xs border border-white/10 hover:border-white/20 transition-all">۱۶ ترابایت</button>
+                </div>
+              </div>
+
+              <!-- Storage Cameras Slider -->
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <label class="text-xs font-semibold text-slate-300">
+                    تعداد دوربین‌های در حال ضبط ۲۴ ساعته:
+                  </label>
+                  <span id="storageCamCountDisplay" class="text-sm font-black text-brand-mint">۴ دوربین</span>
+                </div>
+                <input type="range" id="storageCamSlider" min="1" max="32" value="4" step="1" class="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-brand-mint">
+                <div class="flex justify-between text-[10px] text-slate-400 mt-1 font-medium">
+                  <span>۱ عدد</span>
+                  <span>۸ عدد</span>
+                  <span>۱۶ عدد</span>
+                  <span>۳۲ عدد</span>
+                </div>
+              </div>
+
+              <!-- Codec & Quality Grid -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-2">کیفیت ضبط:</label>
+                  <select id="storageResSelect" class="w-full px-3 py-2.5 rounded-xl bg-brand-navy-dark/90 border border-white/15 text-white text-xs font-medium focus:border-brand-mint focus:outline-none">
+                    <option value="1080p">1080P Full HD (۲ مگاپیکسل)</option>
+                    <option value="2k">2K Quad HD (۴ مگاپیکسل)</option>
+                    <option value="4k" selected>4K Ultra HD (۸ مگاپیکسل)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-2">کدک فشرده‌سازی:</label>
+                  <select id="storageCodecSelect" class="w-full px-3 py-2.5 rounded-xl bg-brand-navy-dark/90 border border-white/15 text-white text-xs font-medium focus:border-brand-mint focus:outline-none">
+                    <option value="h265plus" selected>Smart +H.265 (۵۰٪ صرفه‌جویی)</option>
+                    <option value="h264">Standard H.264 (کدک سنتی)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Output Gauge Display (Left 5 cols) -->
+            <div class="lg:col-span-5 rounded-2xl bg-brand-navy-dark/95 p-6 border border-purple-500/30 text-center relative overflow-hidden shadow-lg">
+              <div class="text-xs text-slate-400 mb-1">مدت زمان ذخیره‌سازی ممتد</div>
+              <div class="text-4xl sm:text-5xl font-black text-brand-mint tracking-tight my-2">
+                <span id="storageDaysResult">۲۸</span>
+                <span class="text-base font-bold text-white mr-1">روز کامل</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                با الگوریتم تشخیص حرکت هوشمند (Motion Detection)، مدت زمان ذخیره‌سازی تا <span id="storageMotionDays" class="text-brand-mint font-bold">۵۶ روز</span> افزایش می‌یابد.
+              </p>
+
+              <div class="space-y-2 text-xs text-slate-400 py-3 border-t border-white/10 text-right">
+                <div class="flex justify-between">
+                  <span>مصرف روزانه کل دوربین‌ها:</span>
+                  <span id="storageDailyGB" class="text-white font-bold">۳۴ گیگابایت / روز</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>وضعیت بازنویسی خودکار (Overwrite):</span>
+                  <span class="text-emerald-400 font-bold">فعال (بدون توقف)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 6. FEATURED PRODUCTS STORE (Minimal Apple Cards with Buy & Add-to-Cart)   -->
+    <!-- ========================================================================= -->
+    <section id="store" class="py-20 bg-brand-navy/30 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-14">
+          <div>
+            <span class="text-brand-mint text-xs sm:text-sm font-bold tracking-widest uppercase mb-2 block">
+              فروشگاه تجهیزات نظارتی
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+              محصولات منتخب و پرفروش
+            </h2>
+          </div>
+          <p class="text-slate-400 text-sm max-w-md mt-3 md:mt-0">
+            تمامی تجهیزات دارای پلمب اصلی، ۳۶ ماه ضمانت تعویض و انتقال تصویر رایگان P2P مادام‌العمر می‌باشند.
+          </p>
+        </div>
+
+        <!-- Product Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Product 1: Dome D400 Pro -->
+          <div class="rounded-3xl apple-glass p-5 border border-white/10 hover:border-brand-mint/40 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="relative w-full h-44 rounded-2xl bg-gradient-to-b from-[#1C2B3A] to-[#0D1520] flex items-center justify-center overflow-hidden mb-4 border border-white/5">
+                <span class="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-full bg-brand-mint/15 text-brand-mint text-[10px] font-bold border border-brand-mint/30">
+                  4K UHD
+                </span>
+                <!-- Clean Minimal Dome Graphic -->
+                <svg class="w-24 h-24 text-slate-300 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="9" stroke="#5BF4A3"/>
+                  <circle cx="12" cy="12" r="5" stroke="#FFFFFF"/>
+                  <circle cx="12" cy="12" r="2" fill="#5BF4A3"/>
+                </svg>
+              </div>
+
+              <div class="text-[11px] text-brand-mint font-semibold mb-1">دوربین دام تحت شبکه</div>
+              <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-mint transition-colors">
+                ArtLenz D400 Ultra
+              </h3>
+              <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                سنسور سونی Starvis 2، دید در شب رنگی ۴۰ متری، میکروفون داخلی و بدنه فلزی ضدآب IP67.
+              </p>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10 mb-3">
+                <span class="text-xs text-slate-400">قیمت نهایی:</span>
+                <div class="text-base font-bold text-white">
+                  ۴,۲۵۰,۰۰۰ <span class="text-[11px] font-sans text-brand-mint">تومان</span>
+                </div>
+              </div>
+              <button onclick="addToCart('دوربین دام ArtLenz D400 Ultra', 4250000)" class="w-full py-2.5 rounded-xl bg-brand-mint text-brand-navy-dark font-bold text-xs hover:bg-brand-mint-hover hover:shadow-mint-glow-sm transition-all flex items-center justify-center gap-1.5">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                <span>افزودن به سبد خرید</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 2: Bullet B600 Pro -->
+          <div class="rounded-3xl apple-glass p-5 border border-white/10 hover:border-brand-mint/40 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="relative w-full h-44 rounded-2xl bg-gradient-to-b from-[#1C2B3A] to-[#0D1520] flex items-center justify-center overflow-hidden mb-4 border border-white/5">
+                <span class="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-full bg-blue-400/15 text-blue-400 text-[10px] font-bold border border-blue-400/30">
+                  پلاک‌خوان هوشمند
+                </span>
+                <!-- Bullet Camera Graphic -->
+                <svg class="w-24 h-24 text-slate-300 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="7" width="16" height="10" rx="3" stroke="#5BF4A3"/>
+                  <circle cx="7" cy="12" r="3" stroke="#FFFFFF"/>
+                  <path d="M18 10l4-2v8l-4-2"/>
+                </svg>
+              </div>
+
+              <div class="text-[11px] text-brand-mint font-semibold mb-1">دوربین بولت محیط باز</div>
+              <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-mint transition-colors">
+                ArtLenz B600 ColorHunter
+              </h3>
+              <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                دید در شب تمام‌رنگی در تاریکی مطلق، پروژکتور وارم‌لایت، هوش مصنوعی تشخیص انسان و پلاک.
+              </p>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10 mb-3">
+                <span class="text-xs text-slate-400">قیمت نهایی:</span>
+                <div class="text-base font-bold text-white">
+                  ۵,۱۰۰,۰۰۰ <span class="text-[11px] font-sans text-brand-mint">تومان</span>
+                </div>
+              </div>
+              <button onclick="addToCart('دوربین بولت B600 ColorHunter', 5100000)" class="w-full py-2.5 rounded-xl bg-brand-mint text-brand-navy-dark font-bold text-xs hover:bg-brand-mint-hover hover:shadow-mint-glow-sm transition-all flex items-center justify-center gap-1.5">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                <span>افزودن به سبد خرید</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 3: NVR 8CH AI -->
+          <div class="rounded-3xl apple-glass p-5 border border-white/10 hover:border-brand-mint/40 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="relative w-full h-44 rounded-2xl bg-gradient-to-b from-[#1C2B3A] to-[#0D1520] flex items-center justify-center overflow-hidden mb-4 border border-white/5">
+                <span class="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-full bg-emerald-400/15 text-emerald-400 text-[10px] font-bold border border-emerald-400/30">
+                  پردازش هوش مصنوعی
+                </span>
+                <!-- NVR Server Graphic -->
+                <svg class="w-24 h-24 text-slate-300 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="6" width="20" height="12" rx="2" stroke="#5BF4A3"/>
+                  <line x1="6" y1="12" x2="6.01" y2="12" stroke="#5BF4A3" stroke-width="3"/>
+                  <line x1="10" y1="12" x2="10.01" y2="12" stroke="#5BF4A3" stroke-width="3"/>
+                  <line x1="14" y1="12" x2="18" y2="12" stroke="#FFFFFF"/>
+                </svg>
+              </div>
+
+              <div class="text-[11px] text-brand-mint font-semibold mb-1">دستگاه ضبط تحت شبکه NVR</div>
+              <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-mint transition-colors">
+                NVR ArtLenz 8CH 4K-AI
+              </h3>
+              <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                پشتیبانی از ۸ دوربین 4K، خروجی HDMI 4K، فرمت فشرده‌سازی +H.265 و بازبینی هوشمند رویدادها.
+              </p>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10 mb-3">
+                <span class="text-xs text-slate-400">قیمت نهایی:</span>
+                <div class="text-base font-bold text-white">
+                  ۶,۸۰۰,۰۰۰ <span class="text-[11px] font-sans text-brand-mint">تومان</span>
+                </div>
+              </div>
+              <button onclick="addToCart('دستگاه NVR 8CH 4K-AI', 6800000)" class="w-full py-2.5 rounded-xl bg-brand-mint text-brand-navy-dark font-bold text-xs hover:bg-brand-mint-hover hover:shadow-mint-glow-sm transition-all flex items-center justify-center gap-1.5">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                <span>افزودن به سبد خرید</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Product 4: Complete Package -->
+          <div class="rounded-3xl apple-glass p-5 border border-brand-mint/30 shadow-mint-glow-sm hover:border-brand-mint transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="relative w-full h-44 rounded-2xl bg-gradient-to-b from-[#1C2B3A] to-[#0D1520] flex items-center justify-center overflow-hidden mb-4 border border-white/5">
+                <span class="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-full bg-brand-mint text-brand-navy-dark text-[10px] font-extrabold shadow-sm">
+                  پکیج اقتصادی کامل
+                </span>
+                <!-- Complete Kit Graphic -->
+                <svg class="w-24 h-24 text-brand-mint group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                  <line x1="12" y1="22.08" x2="12" y2="12"/>
+                </svg>
+              </div>
+
+              <div class="text-[11px] text-brand-mint font-semibold mb-1">پکیج آماده نصب</div>
+              <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-mint transition-colors">
+                پک ۴ عددی دوربین 4K + NVR
+              </h3>
+              <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                شامل ۴ دوربین دید در شب، دستگاه ضبط، هارد بنفش ۱ ترابایت، سوئیچ POE و متعلقات نصب.
+              </p>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10 mb-3">
+                <span class="text-xs text-slate-400">قیمت با تخفیف ویژه:</span>
+                <div class="text-base font-bold text-brand-mint">
+                  ۱۸,۵۰۰,۰۰۰ <span class="text-[11px] font-sans">تومان</span>
+                </div>
+              </div>
+              <button onclick="addToCart('پک ۴ عددی دوربین 4K + NVR', 18500000)" class="w-full py-2.5 rounded-xl bg-brand-mint text-brand-navy-dark font-bold text-xs hover:bg-brand-mint-hover hover:shadow-mint-glow-sm transition-all flex items-center justify-center gap-1.5">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                <span>افزودن به سبد خرید</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 7. QUICK BOOKING FORM (Installation Services, Apple Minimal Glass Form)    -->
+    <!-- ========================================================================= -->
+    <section id="booking" class="py-24 bg-brand-navy-dark relative">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Booking Container -->
+        <div class="relative rounded-3xl apple-glass p-8 sm:p-12 border border-white/15 shadow-apple-card">
+          
+          <!-- Accent Ambient Glow -->
+          <div class="absolute -top-12 right-1/3 w-64 h-64 bg-brand-mint/10 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="text-center max-w-xl mx-auto mb-10">
+            <span class="inline-block px-3.5 py-1 rounded-full bg-brand-mint/15 text-brand-mint font-bold text-xs border border-brand-mint/30 mb-3">
+              خدمات در سراسر کشور
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight mb-3">
+              رزرو سریع بازدید و مشاوره نصب
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base">
+              اطلاعات اولیه خود را وارد کنید؛ کارشناسان فنی آرت لنز ظرف حداکثر ۱۵ دقیقه جهت هماهنگی بازدید با شما تماس خواهند گرفت.
+            </p>
+          </div>
+
+          <!-- Form Element -->
+          <form id="installationBookingForm" class="space-y-6" onsubmit="handleBookingSubmit(event)">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              
+              <!-- Full Name -->
+              <div>
+                <label for="clientName" class="block text-xs font-semibold text-slate-300 mb-2">
+                  نام و نام خانوادگی <span class="text-brand-mint">*</span>
+                </label>
+                <div class="relative">
+                  <input type="text" id="clientName" required placeholder="مثال: علی رضایی" class="w-full px-4 py-3.5 rounded-2xl bg-brand-navy-dark/80 border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-mint focus:ring-2 focus:ring-brand-mint/20 transition-all">
+                  <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Phone Number -->
+              <div>
+                <label for="clientPhone" class="block text-xs font-semibold text-slate-300 mb-2">
+                  شماره تماس همراه <span class="text-brand-mint">*</span>
+                </label>
+                <div class="relative">
+                  <input type="tel" id="clientPhone" required pattern="09[0-9]{9}" placeholder="مثال: ۰۹۱۲۳۴۵۶۷۸۹" class="w-full px-4 py-3.5 rounded-2xl bg-brand-navy-dark/80 border border-white/15 text-white placeholder-slate-500 text-sm font-bold text-left focus:outline-none focus:border-brand-mint focus:ring-2 focus:ring-brand-mint/20 transition-all">
+                  <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Project Type Segmented Radios -->
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-2.5">
+                نوع پروژه و کاربری:
+              </label>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <label class="relative flex items-center justify-center p-3 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-mint/50 cursor-pointer transition-all has-[:checked]:bg-brand-mint/15 has-[:checked]:border-brand-mint text-xs font-medium text-slate-300 has-[:checked]:text-brand-mint">
+                  <input type="radio" name="projectType" value="خانگی و مسکونی" checked class="sr-only">
+                  <span>خانگی و آپارتمانی</span>
+                </label>
+                <label class="relative flex items-center justify-center p-3 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-mint/50 cursor-pointer transition-all has-[:checked]:bg-brand-mint/15 has-[:checked]:border-brand-mint text-xs font-medium text-slate-300 has-[:checked]:text-brand-mint">
+                  <input type="radio" name="projectType" value="ویلایی و باغ" class="sr-only">
+                  <span>ویلایی و باغ</span>
+                </label>
+                <label class="relative flex items-center justify-center p-3 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-mint/50 cursor-pointer transition-all has-[:checked]:bg-brand-mint/15 has-[:checked]:border-brand-mint text-xs font-medium text-slate-300 has-[:checked]:text-brand-mint">
+                  <input type="radio" name="projectType" value="اداری و تجاری" class="sr-only">
+                  <span>اداری و تجاری</span>
+                </label>
+                <label class="relative flex items-center justify-center p-3 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-mint/50 cursor-pointer transition-all has-[:checked]:bg-brand-mint/15 has-[:checked]:border-brand-mint text-xs font-medium text-slate-300 has-[:checked]:text-brand-mint">
+                  <input type="radio" name="projectType" value="صنعتی و کارخانه" class="sr-only">
+                  <span>صنعتی و کارخانه</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Notes / Location (Optional) -->
+            <div>
+              <label for="projectDetails" class="block text-xs font-semibold text-slate-300 mb-2">
+                شهر، محدوده آدرس یا جزئیات پروژه (اختیاری):
+              </label>
+              <textarea id="projectDetails" rows="3" placeholder="مثال: تهران، ونک - نیازمند پوشش ورودی پارکینگ و محوطه لابی با ۴ دوربین دید در شب" class="w-full px-4 py-3 rounded-2xl bg-brand-navy-dark/80 border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-mint focus:ring-2 focus:ring-brand-mint/20 transition-all"></textarea>
+            </div>
+
+            <!-- Submit CTA Button (Mint Green) -->
+            <button type="submit" id="bookingSubmitBtn" class="w-full py-4 rounded-2xl bg-brand-mint text-brand-navy-dark font-extrabold text-base hover:bg-brand-mint-hover hover:shadow-mint-glow active:scale-[0.99] transition-all duration-300 flex items-center justify-center gap-2">
+              <span id="btnText">ثبت درخواست مشاوره و اعزام کارشناس</span>
+              <svg id="btnSpinner" class="w-5 h-5 hidden animate-spin text-brand-navy-dark" viewBox="0 0 24 24" fill="none">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            </button>
+
+            <!-- Form Reassurance Badges -->
+            <div class="flex flex-wrap items-center justify-center gap-6 pt-2 text-xs text-slate-400">
+              <span class="flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-brand-mint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                بازدید و کارشناسی ۱۰۰٪ رایگان
+              </span>
+              <span class="flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-brand-mint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                بدون نیاز به پیش‌پرداخت
+              </span>
+              <span class="flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-brand-mint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                تماس فوری در ساعات ۸ الی ۲۱
+              </span>
+            </div>
+
+          </form>
+
+        </div>
+
+        <!-- Snap & Consult via WhatsApp (Quick Photo Consultation) -->
+        <div class="mt-8 rounded-3xl apple-glass p-6 sm:p-8 border border-emerald-500/30 shadow-apple-card relative overflow-hidden bg-gradient-to-r from-emerald-950/25 via-brand-navy-card to-brand-navy-dark" id="snapConsultCard">
+          <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              </div>
+              <div>
+                <div class="inline-block px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 font-bold text-[10px] border border-emerald-500/30 mb-1">
+                  مشاوره بدون نیاز به پر کردن فرم
+                </div>
+                <h3 class="text-lg sm:text-xl font-black text-white">ارسال عکس فضا یا نقشه و دریافت پیشنهاد آنی در واتساپ</h3>
+                <p class="text-xs sm:text-sm text-slate-300 mt-1 max-w-xl">
+                  از ورودی، حیاط، پارکینگ یا پلان ساختمان خود عکس بگیرید؛ مهندس ناظر آرت لنز بهترین چیدمان دوربین و تخمین هزینه را مستقیماً در واتساپ برایتان ارسال می‌کند.
+                </p>
+              </div>
+            </div>
+
+            <!-- Upload + WhatsApp Action -->
+            <div class="w-full md:w-auto shrink-0 flex flex-col sm:flex-row items-center gap-3">
+              <input type="file" id="snapPhotoInput" accept="image/*" class="hidden">
+              <button type="button" id="snapUploadBtn" class="w-full sm:w-auto px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/15 text-white font-bold text-xs border border-white/20 transition-all flex items-center justify-center gap-2">
+                <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                <span id="snapBtnLabel">انتخاب عکس محیط</span>
+              </button>
+              <button type="button" id="snapSendWhatsAppBtn" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-brand-navy-dark font-black text-xs shadow-lg shadow-emerald-500/20 active:scale-95 transition-all flex items-center justify-center gap-2">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                <span>ارسال مستقیم به واتساپ مهندس</span>
+              </button>
+            </div>
+          </div>
+          <div id="snapPreviewContainer" class="hidden mt-4 pt-4 border-t border-white/10 flex items-center gap-3">
+            <img id="snapPreviewImg" class="w-14 h-14 object-cover rounded-xl border border-emerald-400" src="" alt="پیش‌نمایش عکس">
+            <div class="text-xs">
+              <span class="text-emerald-400 font-bold block" id="snapFileName">تصویر انتخاب شد</span>
+              <span class="text-slate-400">عکس آماده ارسال است؛ بر روی دکمه «ارسال مستقیم به واتساپ» کلیک نمایید.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 8. FAQ ACCORDION (Apple Minimal Questions & Answers)                      -->
+    <!-- ========================================================================= -->
+    <section id="faq" class="py-20 bg-brand-navy/40 relative">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-brand-mint text-xs sm:text-sm font-bold tracking-widest uppercase mb-2 block">
+            پاسخ به ابهامات
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight mb-3">
+            پرسش‌های متداول مشتریان
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base">
+            پاسخ به سوالات پرتکرار در مورد گارانتی، انتقال تصویر و مراحل کابل‌کشی.
+          </p>
+        </div>
+
+        <div class="space-y-4" id="faqAccordion">
+          
+          <!-- FAQ 1 -->
+          <div class="rounded-2xl apple-glass border border-white/10 overflow-hidden transition-all duration-200">
+            <button class="faq-btn w-full p-6 text-right flex items-center justify-between gap-4 font-bold text-base text-white hover:text-brand-mint transition-colors">
+              <span>گارانتی تجهیزات آرت لنز شامل چه مواردی است؟</span>
+              <svg class="faq-chevron w-5 h-5 text-slate-400 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-content hidden px-6 pb-6 text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-4">
+              تمامی دوربین‌ها و دستگاه‌های ضبط آرت لنز دارای ۳۶ ماه گارانتی تعویض بی قید و شرط قطعات اصلی، نوسانات مجاز برق و سنسور تصویر می‌باشند. همچنین خدمات کابل‌کشی و اتصالات دارای ضمانت مادام‌العمر کیفیت زیرساخت هستند.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="rounded-2xl apple-glass border border-white/10 overflow-hidden transition-all duration-200">
+            <button class="faq-btn w-full p-6 text-right flex items-center justify-between gap-4 font-bold text-base text-white hover:text-brand-mint transition-colors">
+              <span>آیا در صورت قطعی اینترنت بین‌الملل، انتقال تصویر بر روی موبایل کار می‌کند؟</span>
+              <svg class="faq-chevron w-5 h-5 text-slate-400 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-content hidden px-6 pb-6 text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-4">
+              بله! سرورهای P2P اختصاصی آرت لنز بر روی بستر شبکه ملی اطلاعات (اینترانت داخلی) مستقر هستند. بنابراین حتی در صورت قطعی یا محدودیت اینترنت جهانی، تصاویر با پینگ پایین و سرعت فوق‌العاده روی گوشی همراه شما در دسترس است.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="rounded-2xl apple-glass border border-white/10 overflow-hidden transition-all duration-200">
+            <button class="faq-btn w-full p-6 text-right flex items-center justify-between gap-4 font-bold text-base text-white hover:text-brand-mint transition-colors">
+              <span>تفاوت دوربین‌های IP با سیستم‌های قدیمی آنالوگ HD در چیست؟</span>
+              <svg class="faq-chevron w-5 h-5 text-slate-400 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-content hidden px-6 pb-6 text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-4">
+              دوربین‌های تحت شبکه IP از کیفیت رزولوشن تا 4K واقعی پشتیبانی می‌کنند، پردازش هوش مصنوعی (مانند تشخیص پلاک و انسان) مستقیماً روی خود دوربین انجام می‌شود و کابل‌کشی آن‌ها بسیار منعطف‌تر و مقاوم‌تر در برابر نویز است.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="rounded-2xl apple-glass border border-white/10 overflow-hidden transition-all duration-200">
+            <button class="faq-btn w-full p-6 text-right flex items-center justify-between gap-4 font-bold text-base text-white hover:text-brand-mint transition-colors">
+              <span>فرآیند کابل‌کشی چقدر زمان می‌برد و آیا ظاهر ساختمان آسیب می‌بیند؟</span>
+              <svg class="faq-chevron w-5 h-5 text-slate-400 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-content hidden px-6 pb-6 text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-4">
+              تیم فنی آرت لنز با بهره‌گیری از تجهیزات داکت‌کشی مخفی، لوله‌های فلزی استاندارد و مسیرهای تاسیساتی پنهان، پروژه را بدون کوچک‌ترین آسیب به زیبایی محیط اجرا می‌کند. زمان اجرای یک پروژه معمولی (۴ تا ۸ دوربین) معمولاً یک روز کاری است.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- 9. FOOTER (Deep Navy #0B1118, Clean, Certificates, Contact Info)         -->
+  <!-- ========================================================================= -->
+  <footer class="bg-brand-navy-deep border-t border-white/10 pt-16 pb-12 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        
+        <!-- Col 1 & 2: Brand & About -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-2xl bg-brand-navy border border-brand-mint/40 flex items-center justify-center p-2">
+              <img src="assets/images/logo.svg" alt="آرت لنز" class="w-full h-full object-contain drop-shadow-[0_0_8px_rgba(96,255,173,0.4)]">
+            </div>
+            <span class="text-xl font-black text-white tracking-tight">آرت لنز | Art Lenz</span>
+          </div>
+          <p class="text-slate-400 text-sm leading-relaxed max-w-sm">
+            شرکت مهندسی آرت لنز، مرجع تخصصی طراحی، تأمین و اجرای پیشرفته‌ترین سیستم‌های نظارت تصویری هوشمند و حفاظت پیرامونی در ایران.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <span class="text-xs text-slate-400">شبکه‌های اجتماعی:</span>
+            <a href="https://wa.me/989390370985" target="_blank" class="p-2 rounded-xl bg-white/5 hover:bg-emerald-500 hover:text-brand-navy-dark text-slate-300 transition-colors" aria-label="واتساپ">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </a>
+            <a href="https://t.me/+989390370985" target="_blank" class="p-2 rounded-xl bg-white/5 hover:bg-sky-400 hover:text-brand-navy-dark text-slate-300 transition-colors" aria-label="تلگرام">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </a>
+            <a href="#" class="p-2 rounded-xl bg-white/5 hover:bg-brand-mint hover:text-brand-navy-dark text-slate-300 transition-colors" aria-label="اینستاگرام">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="p-2 rounded-xl bg-white/5 hover:bg-brand-mint hover:text-brand-navy-dark text-slate-300 transition-colors" aria-label="لینکدین">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 3: Quick Links -->
+        <div>
+          <h4 class="text-sm font-bold text-white mb-4">بخش‌های اصلی</h4>
+          <ul class="space-y-2.5 text-xs text-slate-400">
+            <li><a href="store.html" class="hover:text-brand-mint transition-colors">فروشگاه تجهیزات</a></li>
+            <li><a href="services.html" class="hover:text-brand-mint transition-colors">خدمات نصب و کابل‌کشی</a></li>
+            <li><a href="enterprise.html" class="hover:text-brand-mint transition-colors">پروژه‌های سازمانی و کارخانجات</a></li>
+            <li><a href="calculator.html" class="hover:text-brand-mint transition-colors">محاسبه‌گر هزینه</a></li>
+            <li><a href="faq.html" class="hover:text-brand-mint transition-colors">پرسش‌های متداول</a></li>
+            <li><a href="booking.html" class="hover:text-brand-mint transition-colors">رزرو بازدید حضوری</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Services -->
+        <div>
+          <h4 class="text-sm font-bold text-white mb-4">خدمات فنی</h4>
+          <ul class="space-y-2.5 text-xs text-slate-400">
+            <li><a href="#services" class="hover:text-brand-mint transition-colors">طراحی نقشه و زوایای دید</a></li>
+            <li><a href="#services" class="hover:text-brand-mint transition-colors">کابل‌کشی CAT6 و فیبر نوری</a></li>
+            <li><a href="#services" class="hover:text-brand-mint transition-colors">آرایش رک و کانفیگ سوییچ</a></li>
+            <li><a href="#services" class="hover:text-brand-mint transition-colors">راه‌اندازی انتقال تصویر P2P</a></li>
+            <li><a href="#services" class="hover:text-brand-mint transition-colors">تمدید قرارداد پشتیبانی سالانه</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Contact & Certifications -->
+        <div>
+          <h4 class="text-sm font-bold text-white mb-4">ارتباط و پشتیبانی</h4>
+          <ul class="space-y-3 text-xs text-slate-400 mb-4">
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-mint shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>تماس مستقیم: <a href="tel:+989390370985" class="text-white hover:text-brand-mint font-bold transition-colors">۰۹۳۹۰۳۷۰۹۸۵</a></span>
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1 3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              <span>واتساپ و تلگرام: <a href="https://wa.me/989390370985" target="_blank" class="text-white hover:text-brand-mint font-bold transition-colors">۰۹۳۹۰۳۷۰۹۸۵</a></span>
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-mint shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>ایمیل: info@artlenz.ir</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-brand-mint shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>تهران، خیابان ولیعصر، برج فناوری آرت لنز، واحد ۴۰۲</span>
+            </li>
+          </ul>
+
+          <!-- Trust Certificate Badges -->
+          <div class="flex items-center gap-2 pt-2">
+            <div class="px-2.5 py-1.5 rounded-xl bg-white/5 border border-white/10 text-[10px] text-slate-300">
+              اینماد ۵ ستاره
+            </div>
+            <div class="px-2.5 py-1.5 rounded-xl bg-white/5 border border-white/10 text-[10px] text-slate-300">
+              عضو نظام صنفی
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bottom Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <div>
+          تمامی حقوق مادی و معنوی محفوظ و متعلق به شرکت «آرت لنز - Art Lenz» است. © ۱۴۰۴ - ۲۰۲۶
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-slate-400 transition-colors">حریم خصوصی</a>
+          <a href="#" class="hover:text-slate-400 transition-colors">شرایط و قوانین خدمات</a>
+          <a href="#" class="hover:text-slate-400 transition-colors">نقشه سایت</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- SLIDE-OVER SHOPPING CART DRAWER (Apple Minimal Glass Drawer)               -->
+  <!-- ========================================================================= -->
+  <div id="cartDrawerBackdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden transition-opacity duration-300"></div>
+  <aside id="cartDrawer" class="fixed top-0 left-0 bottom-0 w-full max-w-md bg-brand-navy-dark/95 backdrop-blur-2xl border-r border-white/10 z-50 transform -translate-x-full transition-transform duration-300 flex flex-col justify-between shadow-2xl">
+    
+    <!-- Drawer Header -->
+    <div class="p-6 border-b border-white/10 flex items-center justify-between">
+      <div class="flex items-center gap-2 font-black text-lg text-white">
+        <svg class="w-5 h-5 text-brand-mint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+        <span>سبد خرید شما</span>
+      </div>
+      <button id="closeCartBtn" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white" aria-label="بستن سبد">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- Drawer Items List -->
+    <div id="cartItemsContainer" class="p-6 overflow-y-auto flex-1 space-y-4">
+      <!-- Empty state by default -->
+      <div id="emptyCartState" class="text-center py-16 text-slate-400">
+        <svg class="w-16 h-16 mx-auto mb-4 text-slate-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+        <p class="text-base font-medium text-white mb-1">سبد خرید شما خالی است</p>
+        <p class="text-xs">تجهیزات مورد نظر خود را از بخش فروشگاه اضافه نمایید.</p>
+      </div>
+      <div id="cartItemsList" class="space-y-3"></div>
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="p-6 border-t border-white/10 bg-brand-navy-dark">
+      <div class="flex items-center justify-between text-sm mb-4">
+        <span class="text-slate-400">جمع کل سبد:</span>
+        <div class="text-lg font-black text-white">
+          <span id="cartTotalPrice">۰</span> <span class="text-xs font-sans text-brand-mint">تومان</span>
+        </div>
+      </div>
+      <button onclick="checkoutCart()" class="w-full py-3.5 rounded-2xl bg-brand-mint text-brand-navy-dark font-extrabold text-sm hover:bg-brand-mint-hover hover:shadow-mint-glow-sm transition-all">
+        تکمیل و نهایی‌سازی سفارش
+      </button>
+    </div>
+
+  </aside>
+
+  <!-- ========================================================================= -->
+  <!-- 10. INSTAGRAM STORIES VIEWER MODAL                                         -->
+  <!-- ========================================================================= -->
+  <div id="storyViewerModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-lg flex items-center justify-center p-2 sm:p-4 hidden transition-opacity duration-300">
+    <div class="relative w-full max-w-sm sm:max-w-md h-[88vh] max-h-[760px] rounded-3xl overflow-hidden bg-brand-navy-dark border border-white/20 shadow-2xl flex flex-col justify-between select-none">
+      
+      <!-- Top Progress Bars (5 Segments) -->
+      <div class="p-3 sm:p-4 pb-0 z-30">
+        <div class="flex items-center gap-1.5" id="storyProgressBars">
+          <div class="flex-1 h-1 bg-white/25 rounded-full overflow-hidden">
+            <div class="story-progress-bar h-full bg-brand-mint w-0" id="progBar0"></div>
+          </div>
+          <div class="flex-1 h-1 bg-white/25 rounded-full overflow-hidden">
+            <div class="story-progress-bar h-full bg-brand-mint w-0" id="progBar1"></div>
+          </div>
+          <div class="flex-1 h-1 bg-white/25 rounded-full overflow-hidden">
+            <div class="story-progress-bar h-full bg-brand-mint w-0" id="progBar2"></div>
+          </div>
+          <div class="flex-1 h-1 bg-white/25 rounded-full overflow-hidden">
+            <div class="story-progress-bar h-full bg-brand-mint w-0" id="progBar3"></div>
+          </div>
+          <div class="flex-1 h-1 bg-white/25 rounded-full overflow-hidden">
+            <div class="story-progress-bar h-full bg-brand-mint w-0" id="progBar4"></div>
+          </div>
+        </div>
+
+        <!-- Story User Header -->
+        <div class="flex items-center justify-between mt-3">
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-full story-ring-gradient p-0.5">
+              <div class="w-full h-full rounded-full bg-brand-navy-dark flex items-center justify-center text-sm" id="storyModalAvatar">
+                🏡
+              </div>
+            </div>
+            <div>
+              <h4 class="text-xs font-black text-white" id="storyModalTitle">ویلای لواسان</h4>
+              <span class="text-[10px] text-brand-mint font-semibold block" id="storyModalSubtitle">دید در شب رنگی استخر و محوطه</span>
+            </div>
+          </div>
+          
+          <!-- Close & Pause Buttons -->
+          <button id="closeStoryModalBtn" type="button" class="w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-all" aria-label="بستن استوری">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Story Media Content & Simulation (Tap Zones) -->
+      <div class="relative flex-1 flex flex-col justify-between p-4 my-2 overflow-hidden" id="storyMediaArea">
+        <!-- Tap Navigation Zones: Left = Prev, Right = Next -->
+        <div class="absolute inset-y-0 right-0 w-1/2 z-20 cursor-pointer" id="storyTapNext" title="بعدی"></div>
+        <div class="absolute inset-y-0 left-0 w-1/2 z-20 cursor-pointer" id="storyTapPrev" title="قبلی"></div>
+
+        <!-- Simulated CCTV Feed Background -->
+        <div class="absolute inset-0 z-0 bg-gradient-to-b from-[#091522] via-[#0b1b2d] to-[#04080e]" id="storyBgGradient"></div>
+
+        <!-- Simulated CCTV HUD Layer -->
+        <div class="relative z-10 flex items-center justify-between text-[11px] font-mono text-brand-mint bg-black/50 backdrop-blur-sm px-3 py-1.5 rounded-xl border border-white/10">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+            <span class="font-bold text-white tracking-widest">LIVE • 4K</span>
+          </div>
+          <div id="storyLiveClock" class="tracking-wider">2026-09-08 22:30:14</div>
+        </div>
+
+        <!-- Center Visual Highlight (Dynamic Story Visual) -->
+        <div class="relative z-10 my-auto text-center px-4 pointer-events-none" id="storyCenterVisual">
+          <div class="w-24 h-24 mx-auto rounded-3xl bg-brand-mint/10 border border-brand-mint/30 flex items-center justify-center text-4xl mb-4 shadow-mint-glow" id="storyEmojiBox">
+            🏡
+          </div>
+          <div class="inline-block px-3 py-1 rounded-full bg-brand-mint/20 border border-brand-mint text-brand-mint text-xs font-black mb-2" id="storyBadgeText">
+            پروژه مسکونی لوکس
+          </div>
+          <p class="text-sm font-bold text-white leading-relaxed" id="storyQuoteText">
+            «با سنسورهای دید در شب رنگی آرت لنز، محوطه باغ و استخر در تاریکی مطلق مثل روز روشن و واضحه.»
+          </p>
+        </div>
+
+        <!-- Project Spec Pill Tags -->
+        <div class="relative z-10 flex flex-wrap items-center justify-center gap-1.5 text-[10px]" id="storyPillTags">
+          <span class="px-2.5 py-1 rounded-lg bg-white/10 text-slate-200 border border-white/10">سنسور Starvis 2</span>
+          <span class="px-2.5 py-1 rounded-lg bg-white/10 text-slate-200 border border-white/10">۸ دوربین 4K</span>
+          <span class="px-2.5 py-1 rounded-lg bg-white/10 text-slate-200 border border-white/10">گارانتی طلایی ۳۶ ماهه</span>
+        </div>
+      </div>
+
+      <!-- Story Bottom CTA -->
+      <div class="p-4 pt-2 z-30 border-t border-white/10 bg-brand-navy-dark/80 backdrop-blur-sm">
+        <button type="button" id="storyOrderThisBtn" class="w-full py-3 rounded-2xl bg-brand-mint text-brand-navy-dark font-black text-xs hover:bg-brand-mint-hover hover:shadow-mint-glow-sm transition-all flex items-center justify-center gap-2">
+          <span>استعلام قیمت و سفارش این پکیج</span>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 11. SMART 3-STEP SECURITY QUIZ MODAL (30-Second Security Wizard)           -->
+  <!-- ========================================================================= -->
+  <div id="securityQuizModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden transition-opacity duration-300">
+    <div class="relative w-full max-w-xl rounded-3xl apple-glass border border-white/20 p-6 sm:p-8 shadow-2xl overflow-hidden bg-brand-navy-dark/95">
+      
+      <!-- Ambient Glow -->
+      <div class="absolute -top-12 right-10 w-48 h-48 bg-brand-mint/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-2xl bg-brand-mint/15 border border-brand-mint/30 flex items-center justify-center text-brand-mint">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div>
+            <h3 class="text-base sm:text-lg font-black text-white">کوییز هوشمند انتخاب پکیج امنیتی</h3>
+            <p class="text-[11px] text-slate-400">در ۳ مرحله کوتاه، مناسب‌ترین سیستم نظارتی را بیابید</p>
+          </div>
+        </div>
+        <button type="button" id="closeQuizModalBtn" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white" aria-label="بستن کوییز">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <!-- Steps Indicator -->
+      <div class="flex items-center justify-between gap-2 mb-6" id="quizStepIndicator">
+        <div class="flex-1 text-center pb-2 border-b-2 border-brand-mint font-bold text-xs text-brand-mint" id="stepIndicator1">۱. نوع محیط</div>
+        <div class="flex-1 text-center pb-2 border-b-2 border-white/10 font-medium text-xs text-slate-400" id="stepIndicator2">۲. اولویت اصلی</div>
+        <div class="flex-1 text-center pb-2 border-b-2 border-white/10 font-medium text-xs text-slate-400" id="stepIndicator3">۳. متراژ و ابعاد</div>
+      </div>
+
+      <!-- Step 1 Container -->
+      <div id="quizStep1" class="space-y-4">
+        <h4 class="text-sm font-bold text-white mb-3">محل نصب و نوع کاربری فضای شما کجاست؟</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <button type="button" onclick="selectQuizOption(1, 'home')" class="quiz-opt-btn p-4 rounded-2xl bg-white/5 hover:bg-brand-mint/15 border border-white/10 hover:border-brand-mint transition-all text-right group">
+            <div class="text-xl mb-1">🏡</div>
+            <div class="text-xs font-bold text-white group-hover:text-brand-mint">آپارتمان و خانه مسکونی</div>
+            <div class="text-[11px] text-slate-400 mt-1">پوشش ورودی، پارکینگ، لابی و راه‌پله</div>
+          </button>
+          <button type="button" onclick="selectQuizOption(1, 'villa')" class="quiz-opt-btn p-4 rounded-2xl bg-white/5 hover:bg-brand-mint/15 border border-white/10 hover:border-brand-mint transition-all text-right group">
+            <div class="text-xl mb-1">🌳</div>
+            <div class="text-xs font-bold text-white group-hover:text-brand-mint">ویلا و باغ پیرامونی</div>
+            <div class="text-[11px] text-slate-400 mt-1">دید در شب رنگی محوطه باز و ضدآب IP67</div>
+          </button>
+          <button type="button" onclick="selectQuizOption(1, 'shop')" class="quiz-opt-btn p-4 rounded-2xl bg-white/5 hover:bg-brand-mint/15 border border-white/10 hover:border-brand-mint transition-all text-right group">
+            <div class="text-xl mb-1">💎</div>
+            <div class="text-xs font-bold text-white group-hover:text-brand-mint">فروشگاه و طلافروشی</div>
+            <div class="text-[11px] text-slate-400 mt-1">رزولوشن 4K فوق‌العاده برای خواندن اسکناس و چهره</div>
+          </button>
+          <button type="button" onclick="selectQuizOption(1, 'factory')" class="quiz-opt-btn p-4 rounded-2xl bg-white/5 hover:bg-brand-mint/15 border border-white/10 hover:border-brand-mint transition-all text-right group">
+            <div class="text-xl mb-1">🏭</div>
+            <div class="text-xs font-bold text-white group-hover:text-brand-mint">کارخانه، سوله و انبار</div>
+            <div class="text-[11px] text-slate-400 mt-1">فواصل طولانی، فیبر نوری و پلاک‌خوان هوشمند</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2 Container -->
+      <div id="quizStep2" class="space-y-4 hidden">
+        <h4 class="text-sm font-bold text-white mb-3">مهم‌ترین دغدغه و اولویت فنی شما چیست؟</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <button type="button" onclick="selectQuizOption(2, 'nightcolor')" class="quiz-opt-btn p-4 rounded-2xl bg-white/5 hover:bg-brand-mint/15 border border-white/10 hover:border-brand-mint transition-all text-right group">
+            <div class="text-xl mb-1">🌙</div>
+            <div class="text-xs font-bold text-white group-hover:text-brand-mint">دید در شب تمام‌رنگی 4K</div>
+            <div class="text-[11px] text-slate-400 mt-1">بدون پرتو مادون قرمز سیاه و سفید با سنسور سونی</div>
+          </button>
+          <button type="button" onclick="selectQuizOption(2, 'plate')" class="quiz-opt-btn p-4 rounded-2xl bg-white/5 hover:bg-brand-mint/15 border border-white/10 hover:border-brand-mint transition-all text-right group">
+            <div class="text-xl mb-1">🚗</div>
+            <div class="text-xs font-bold text-white group-hover:text-brand-mint">پلاک‌خوانی دقیق خودروها</div>
+            <div class="text-[11px] text-slate-400 mt-1">ثبت پلاک در سرعت بالا و نور زنون شدید</div>
+          </button>
+          <button type="button" onclick="selectQuizOption(2, 'mobile')" class="quiz-opt-btn p-4 rounded-2xl bg-white/5 hover:bg-brand-mint/15 border border-white/10 hover:border-brand-mint transition-all text-right group">
+            <div class="text-xl mb-1">📱</div>
+            <div class="text-xs font-bold text-white group-hover:text-brand-mint">انتقال تصویر پایدار موبایل</div>
+            <div class="text-[11px] text-slate-400 mt-1">سرور اختصاصی P2P بدون قطعی در شبکه ملی</div>
+          </button>
+          <button type="button" onclick="selectQuizOption(2, 'economy')" class="quiz-opt-btn p-4 rounded-2xl bg-white/5 hover:bg-brand-mint/15 border border-white/10 hover:border-brand-mint transition-all text-right group">
+            <div class="text-xl mb-1">💰</div>
+            <div class="text-xs font-bold text-white group-hover:text-brand-mint">قیمت اقتصادی و عمر طولانی</div>
+            <div class="text-[11px] text-slate-400 mt-1">حداکثر کارایی با کمترین هزینه و گارانتی تعویض</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3 Container -->
+      <div id="quizStep3" class="space-y-4 hidden">
+        <h4 class="text-sm font-bold text-white mb-3">متراژ تقریبی فضا و تعداد تقریبی نقاط مورد نظر:</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <button type="button" onclick="selectQuizOption(3, 'small')" class="quiz-opt-btn p-4 rounded-2xl bg-white/5 hover:bg-brand-mint/15 border border-white/10 hover:border-brand-mint transition-all text-right group">
+            <div class="text-xl mb-1">🔹</div>
+            <div class="text-xs font-bold text-white group-hover:text-brand-mint">کوچک (تا ۱۲۰ متر مربع)</div>
+            <div class="text-[11px] text-slate-400 mt-1">نیاز به ۲ الی ۴ دوربین مداربسته</div>
+          </button>
+          <button type="button" onclick="selectQuizOption(3, 'medium')" class="quiz-opt-btn p-4 rounded-2xl bg-white/5 hover:bg-brand-mint/15 border border-white/10 hover:border-brand-mint transition-all text-right group">
+            <div class="text-xl mb-1">🔸</div>
+            <div class="text-xs font-bold text-white group-hover:text-brand-mint">متوسط (۱۲۰ تا ۳۵۰ متر)</div>
+            <div class="text-[11px] text-slate-400 mt-1">نیاز به ۴ الی ۸ دوربین مداربسته</div>
+          </button>
+          <button type="button" onclick="selectQuizOption(3, 'large')" class="quiz-opt-btn p-4 rounded-2xl bg-white/5 hover:bg-brand-mint/15 border border-white/10 hover:border-brand-mint transition-all text-right group">
+            <div class="text-xl mb-1">🔷</div>
+            <div class="text-xs font-bold text-white group-hover:text-brand-mint">بزرگ (۳۵۰ تا ۱۰۰۰ متر)</div>
+            <div class="text-[11px] text-slate-400 mt-1">نیاز به ۸ الی ۱۶ دوربین مداربسته</div>
+          </button>
+          <button type="button" onclick="selectQuizOption(3, 'huge')" class="quiz-opt-btn p-4 rounded-2xl bg-white/5 hover:bg-brand-mint/15 border border-white/10 hover:border-brand-mint transition-all text-right group">
+            <div class="text-xl mb-1">🏢</div>
+            <div class="text-xs font-bold text-white group-hover:text-brand-mint">پروژه صنعتی / برج (بالای ۱۰۰۰ متر)</div>
+            <div class="text-[11px] text-slate-400 mt-1">بیش از ۱۶ دوربین + سوئیچ POE و رک مرکزی</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 4: Final Recommendation Result -->
+      <div id="quizResult" class="space-y-5 hidden">
+        <div class="p-5 rounded-2xl bg-brand-mint/10 border border-brand-mint/40 text-center relative overflow-hidden">
+          <div class="inline-block px-3 py-1 rounded-full bg-brand-mint text-brand-navy-dark text-[11px] font-black mb-2">
+            پیشنهاد هوشمند سیستم نظارتی شما
+          </div>
+          <h4 class="text-xl font-black text-white" id="quizRecommendedTitle">پکیج ۴ عددی سوپرویژن 4K Ultra</h4>
+          <p class="text-xs text-slate-300 mt-1" id="quizRecommendedDesc">
+            سنسور سونی Starvis 2 + دید در شب رنگی وارم‌لایت + دستگاه ۸ کانال AI + هارد بنفش ۲ ترابایت
+          </p>
+
+          <div class="my-4 py-3 border-y border-white/10 flex items-center justify-between px-4">
+            <span class="text-xs text-slate-400">تخمین هزینه پکیج کامل با کابل و نصب:</span>
+            <div class="text-lg font-black text-brand-mint">
+              <span id="quizPriceDisplay">۲۱,۸۰۰,۰۰۰</span>
+              <span class="text-xs font-sans">تومان</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-right text-xs text-slate-300" id="quizKeyPoints">
+            <div class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-brand-mint shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>دید در شب رنگی در تاریکی مطلق</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-brand-mint shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>انتقال تصویر P2P مادام‌العمر</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-brand-mint shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>۳۶ ماه گارانتی تعویض طلایی</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-brand-mint shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>کابل‌کشی استاندارد تمام‌مس</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <button type="button" id="quizAddToCartBtn" class="flex-1 py-3.5 rounded-2xl bg-brand-mint text-brand-navy-dark font-black text-xs hover:bg-brand-mint-hover hover:shadow-mint-glow-sm transition-all flex items-center justify-center gap-2">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+            <span>افزودن این پکیج به سبد خرید</span>
+          </button>
+          <button type="button" id="quizBookConsultBtn" class="flex-1 py-3.5 rounded-2xl bg-white/10 hover:bg-white/15 text-white font-bold text-xs border border-white/20 transition-all flex items-center justify-center gap-2">
+            <span>رزرو کارشناسی حضوری رایگان</span>
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+        </div>
+
+        <button type="button" onclick="restartQuiz()" class="w-full text-center text-xs text-slate-400 hover:text-white pt-1">
+          شروع مجدد کوییز ↻
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 12. OFFICIAL PDF INVOICE MODAL (Pre-Invoice with Gold Digital Stamp)       -->
+  <!-- ========================================================================= -->
+  <div id="officialInvoiceModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 hidden overflow-y-auto">
+    <div class="relative w-full max-w-3xl my-auto rounded-3xl bg-slate-900 border border-white/20 shadow-2xl overflow-hidden flex flex-col">
+      
+      <!-- Modal Top Action Bar (Screen Only) -->
+      <div class="p-4 bg-brand-navy-dark border-b border-white/10 flex items-center justify-between no-print">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-brand-mint"></span>
+          <span class="text-xs sm:text-sm font-black text-white">پیش‌فاکتور رسمی مهندسی آرت لنز</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button type="button" id="printInvoiceBtn" onclick="window.print()" class="px-4 py-2 rounded-xl bg-brand-mint text-brand-navy-dark font-black text-xs hover:bg-brand-mint-hover hover:shadow-mint-glow-sm transition-all flex items-center gap-1.5">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            <span>چاپ یا دریافت PDF</span>
+          </button>
+          <button type="button" id="closeInvoiceModalBtn" class="p-2 rounded-xl bg-white/10 text-slate-300 hover:text-white transition-all" aria-label="بستن">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Printable Area (White A4 Style Document) -->
+      <div id="officialInvoicePrintArea" class="bg-white text-slate-900 p-6 sm:p-10 font-sans text-right select-text">
+        
+        <!-- Document Header -->
+        <div class="flex items-start justify-between border-b-2 border-slate-900 pb-5 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-xl bg-slate-900 p-2 flex items-center justify-center">
+              <img src="assets/images/logo.svg" alt="آرت لنز" class="w-full h-full object-contain">
+            </div>
+            <div>
+              <h2 class="text-xl font-black text-slate-900 tracking-tight">شرکت مهندسی نظارت تصویری آرت لنز</h2>
+              <span class="text-[11px] text-slate-600 block">سیستم‌های پیشرفته نظارت تصویری و حفاظت الکترونیک</span>
+            </div>
+          </div>
+          
+          <div class="text-left text-xs space-y-1 text-slate-700">
+            <div><span class="font-bold">شماره پیگیری:</span> <span id="invoiceSerialNo" class="font-mono font-bold text-slate-900">ALZ-1404-7892</span></div>
+            <div><span class="font-bold">تاریخ صدور:</span> <span id="invoiceDate">۱۴۰۴/۰۶/۱۷</span></div>
+            <div><span class="font-bold">اعتبار پیش‌فاکتور:</span> <span>۷ روز کاری</span></div>
+          </div>
+        </div>
+
+        <!-- Parties Table -->
+        <div class="grid grid-cols-2 gap-4 text-xs p-3 rounded-xl bg-slate-100 border border-slate-200 mb-6">
+          <div>
+            <span class="font-bold text-slate-900 block mb-1">مشخصات فروشنده و مجری:</span>
+            <div class="text-slate-700 space-y-0.5">
+              <div>نام: شرکت مهندسی آرت لنز (سهامی خاص)</div>
+              <div>تلفن پشتیبانی: ۰۹۳۹۰۳۷۰۹۸۵</div>
+              <div>آدرس: تهران، خیابان ولیعصر، برج فناوری آرت لنز</div>
+            </div>
+          </div>
+          <div>
+            <span class="font-bold text-slate-900 block mb-1">مشخصات خریدار / متقاضی:</span>
+            <div class="text-slate-700 space-y-0.5">
+              <div>نام متقاضی: <span id="invoiceClientName" class="font-bold">مشتری گرامی آرت لنز</span></div>
+              <div>شماره تماس: <span id="invoiceClientPhone">۰۹xxxxxxxxx</span></div>
+              <div>نوع پروژه: <span id="invoiceProjectType">خانگی / مسکونی</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Itemized Table -->
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-xs text-right border-collapse border border-slate-300">
+            <thead>
+              <tr class="bg-slate-900 text-white font-bold">
+                <th class="p-2.5 border border-slate-300 w-10 text-center">ردیف</th>
+                <th class="p-2.5 border border-slate-300">شرح کالا / خدمات فنی</th>
+                <th class="p-2.5 border border-slate-300 w-16 text-center">تعداد</th>
+                <th class="p-2.5 border border-slate-300 w-28 text-left">قیمت واحد (تومان)</th>
+                <th class="p-2.5 border border-slate-300 w-32 text-left">قیمت کل (تومان)</th>
+              </tr>
+            </thead>
+            <tbody id="invoiceTableBody" class="text-slate-800 divide-y divide-slate-200">
+              <tr>
+                <td class="p-2.5 border border-slate-300 text-center">۱</td>
+                <td class="p-2.5 border border-slate-300 font-bold">دوربین 4K Ultra HD دید در شب رنگی سونی Starvis 2</td>
+                <td class="p-2.5 border border-slate-300 text-center" id="invoiceRowCamCount">۴</td>
+                <td class="p-2.5 border border-slate-300 text-left font-mono">۴,۲۵۰,۰۰۰</td>
+                <td class="p-2.5 border border-slate-300 text-left font-mono font-bold" id="invoiceRowCamTotal">۱۷,۰۰۰,۰۰۰</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 border border-slate-300 text-center">۲</td>
+                <td class="p-2.5 border border-slate-300">دستگاه NVR تحت شبکه 8CH 4K هوش مصنوعی + انتقال تصویر P2P</td>
+                <td class="p-2.5 border border-slate-300 text-center">۱</td>
+                <td class="p-2.5 border border-slate-300 text-left font-mono">۶,۸۰۰,۰۰۰</td>
+                <td class="p-2.5 border border-slate-300 text-left font-mono font-bold">۶,۸۰۰,۰۰۰</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 border border-slate-300 text-center">۳</td>
+                <td class="p-2.5 border border-slate-300">هارد نظارتی بنفش WD Purple ۲ ترابایت ویژه ضبط دائم</td>
+                <td class="p-2.5 border border-slate-300 text-center">۱</td>
+                <td class="p-2.5 border border-slate-300 text-left font-mono">۳,۹۰۰,۰۰۰</td>
+                <td class="p-2.5 border border-slate-300 text-left font-mono font-bold">۳,۹۰۰,۰۰۰</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 border border-slate-300 text-center">۴</td>
+                <td class="p-2.5 border border-slate-300">کابل تمام مس Cat6 Outdoor، سوکت‌ها و اتصالات ایزوله ضد رعدوبرق</td>
+                <td class="p-2.5 border border-slate-300 text-center">۱ پک</td>
+                <td class="p-2.5 border border-slate-300 text-left font-mono">۱,۸۰۰,۰۰۰</td>
+                <td class="p-2.5 border border-slate-300 text-left font-mono font-bold">۱,۸۰۰,۰۰۰</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 border border-slate-300 text-center">۵</td>
+                <td class="p-2.5 border border-slate-300">اجرت نصب، داکت‌کشی تخصصی، کانفیگ انتقال تصویر و تحویل فنی</td>
+                <td class="p-2.5 border border-slate-300 text-center">۱ پروژه</td>
+                <td class="p-2.5 border border-slate-300 text-left font-mono">۲,۵۰۰,۰۰۰</td>
+                <td class="p-2.5 border border-slate-300 text-left font-mono font-bold">۲,۵۰۰,۰۰۰</td>
+              </tr>
+            </tbody>
+            <tfoot class="bg-slate-50 font-bold">
+              <tr>
+                <td colspan="4" class="p-2.5 border border-slate-300 text-left">جمع کل ناخالص:</td>
+                <td class="p-2.5 border border-slate-300 text-left font-mono" id="invoiceSubtotal">۳۲,۰۰۰,۰۰۰ تومان</td>
+              </tr>
+              <tr>
+                <td colspan="4" class="p-2.5 border border-slate-300 text-left text-emerald-700">تخفیف ویژه جشنواره طلایی:</td>
+                <td class="p-2.5 border border-slate-300 text-left font-mono text-emerald-700" id="invoiceDiscount">۲,۵۰۰,۰۰۰- تومان</td>
+              </tr>
+              <tr class="bg-slate-900 text-white text-sm">
+                <td colspan="4" class="p-3 border border-slate-900 text-left font-black">مبلغ نهایی قابل پرداخت:</td>
+                <td class="p-3 border border-slate-900 text-left font-mono font-black" id="invoiceFinalTotal">۲۹,۵۰۰,۰۰۰ تومان</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <!-- Official Stamp & Signature Block -->
+        <div class="flex items-center justify-between pt-4 border-t border-slate-300 text-xs">
+          <div class="space-y-1">
+            <span class="font-bold text-slate-900 block">شرایط و گارانتی:</span>
+            <p class="text-slate-600 text-[11px] leading-relaxed max-w-md">
+              تمامی قطعات دارای ۳۶ ماه ضمانت تعویض فوری طلایی و سرور انتقال تصویر داخلی رایگان می‌باشند.
+            </p>
+          </div>
+
+          <!-- Digital Gold Stamp Simulation -->
+          <div class="relative w-36 h-36 rounded-full border-4 border-dashed border-amber-600 p-2 flex flex-col items-center justify-center text-center rotate-[-6deg] select-none">
+            <div class="text-[9px] font-black text-amber-700 uppercase tracking-widest">ART LENZ CO.</div>
+            <div class="text-[10px] font-black text-slate-900 my-0.5">تاییدیه رسمی فنی</div>
+            <div class="text-[9px] text-amber-700 font-bold">گارانتی طلایی ۳۶ ماهه</div>
+            <div class="w-8 h-8 my-1 rounded bg-slate-100 flex items-center justify-center border border-slate-300">
+              <svg class="w-6 h-6 text-slate-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+            </div>
+            <div class="text-[8px] font-mono text-slate-600">VERIFIED • ALZ</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 13. FLOATING QUICK ACTION (Snap & Consult via WhatsApp)                   -->
+  <!-- ========================================================================= -->
+  <div class="fixed bottom-6 left-6 z-40 flex flex-col items-end gap-2">
+    <button type="button" id="floatingWhatsAppBtn" class="group relative px-4 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 text-brand-navy-dark font-black text-xs shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2.5">
+      <span class="w-2.5 h-2.5 rounded-full bg-white animate-ping"></span>
+      <svg class="w-5 h-5 text-brand-navy-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      <span class="hidden sm:inline">مشاوره و ارسال عکس فضا</span>
+    </button>
+  </div>
+
+  <!-- TOAST NOTIFICATION POPUP -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 apple-glass px-5 py-3.5 rounded-2xl border border-brand-mint/40 shadow-mint-glow flex items-center gap-3">
+    <div class="w-8 h-8 rounded-full bg-brand-mint/20 text-brand-mint flex items-center justify-center shrink-0">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <div>
+      <h5 id="toastTitle" class="text-xs font-bold text-white">پیام موفقیت</h5>
+      <p id="toastBody" class="text-[11px] text-slate-300">عملیات با موفقیت انجام شد.</p>
+    </div>
+  </div>
+
+  <!-- Custom Scripts -->
+  <script src="assets/js/main.js?v=2.7"></script>
+
+</body>
+</html>
